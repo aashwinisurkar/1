@@ -1,0 +1,19 @@
+.h-screen{
+
+background-image: url('/img/homepageimg.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat;
+  height: 100vh;
+  background-attachment: scroll;
+  opacity:0.8;
+  z-index:-1;
+
+   /* Ensures the background covers the full height of the viewport */
+}
+.image-style {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+}
