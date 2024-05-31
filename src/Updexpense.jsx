@@ -77,7 +77,7 @@ export default function Updexpense({plazaname,plazaid,plazaremitance,plazaaddres
       >
         <form onSubmit={handleSubmit}>
           
-          <div className='w-full mb-2 text-[30px] text-center bg-black text-white'>Update Expense Head</div>
+          <div className='w-full mb-2 text-[30px] text-center bg-black text-white'>Update Expense </div>
           <div className="flex flex-wrap">
           <div className="w-full  px-4">
             <div className="relative w-full mb-5">

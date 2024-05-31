@@ -642,7 +642,7 @@ fetch(api+'get_plaza')
 
   return (
     <>
-    <div className=' w-full  flex '>
+    <div className=' w-full pt-1'>
     <div className='w-full'>
     <div className="flex justify-center items-center">
      <div className="w-full pt-1  justify-center items-center">
@@ -656,13 +656,13 @@ fetch(api+'get_plaza')
     </div>
     </div>
     </div>
-    <div className="w-full h-full  flex ">
+    <div className="w-full h-full bg-white ">
     <form className=" h-full w-full  ">
             {/* <div className=" overflow-scroll"> */}
            
                 <div className=" py-1  justify-center items-center ">
-                <div className="px-2  justify-start flex">
-            <div className="ml-[5px] flex mb-3">
+                <div className="px-2  flex-row  justify-center flex">
+            <div className="ml-[5px]  flex mb-3">
               <label className="uppercase text-blueGray-600 text-[17px] flex justify-center items-center font-bold mb-2 px-2" htmlfor="grid-password">
                 Date
               </label>
@@ -697,7 +697,7 @@ fetch(api+'get_plaza')
           </div>
      <div className=" flex-grow-1 ">
                     
-   <div className="flex">
+   <div className="flex flex-col lg:flex-row ">
              
    <div className="border rounded-xl py-2 px-2 border-gray-300 shadow-md m-1 max-w-[317px]">
 
@@ -707,16 +707,16 @@ fetch(api+'get_plaza')
       <div className="flex  bg-purple-200 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
         <h2 className="font-bold text-[17px] text-dark  ">SUMMARY</h2>
         </div>
-      <div className="flex justify-start w-full mx-2 my-3">
+      <div className="flex flex-col justify-start w-full mx-2 my-3">
   <div className="  items-start  flex">
 
   <div className="w-full font-bold my-3 mx-0 text-[13px]">
-  <div className="flex justify-start items-center p-3">
+  <div className="flex  justify-center  items-center p-3">
         <div className="left-0 uppercase  flex-initial   w-[130px]">Opening Amount:</div>
         <input type="number" placeholder="Opening Amount" className="border-2 w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
         defaultValue={oi} disabled/>
       </div>
-      <div className="flex justify-start items-center   p-4">
+      <div className="flex justify-center items-center   p-4">
         <div className="left-0 uppercase  flex-initial   w-[130px]">TOTAL CASH RECEIVES:</div>
         <input type="number" placeholder="Total cash received" className="border-2 w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)}
@@ -736,14 +736,14 @@ fetch(api+'get_plaza')
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial   w-[130px]">TOTAL EXPENCES:</div>
-        <input type="number" placeholder="Total expenses" className="border-2 w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="Total expenses" className="border-2 w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={(formData.cash_kpt)}
          disabled   />
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial    w-[130px]">CLOSING BALANCE:</div>
         <input type="number" placeholder="Closing amount " className="border-2 w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-          value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
+          value={ parseFloat(oi)+parseFloat(formData.adv_from_ho)+parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)-parseFloat(formData.cash_dep_arcpl)-parseFloat(formData.cash_kpt)}
           disabled  />
       </div>
    
@@ -843,7 +843,7 @@ fetch(api+'get_plaza')
             <div className="   flex justify-left  items-start ">
            
         <div className="left-0 uppercase  flex-initial py-1 me-2  font-bold text-[12px] ml-[20px] w-[120px]"> CASH DEPOSITED BY TC</div>
-        <input type="number" placeholder="by TC" className="border-2 w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="by TC" className="border-2 w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
        value={formData.total_cash_rec}
        onChange={(e) => handleInputChange("total_cash_rec", e.target.value)} />
       </div>
@@ -906,7 +906,7 @@ fetch(api+'get_plaza')
           </select>
                                                                             </td>
                                                                             <td className="p-1 border-2 w-[50px]">
-                                                                                <input type="number" placeholder="Amount" className="border-2 w-[60px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[70px]"
+                                                                                <input type="text" placeholder="Amount" className="border-2 w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all "
                                                                                  onChange={(e) => handleRowInputChange(rowIndex,'amount',e.target.value)}
                                                                                  value={row.amount} />
                                                                             </td>
@@ -917,10 +917,7 @@ fetch(api+'get_plaza')
                 
                                                                            </td>
                                                                        <td className="p-1 border-2  mx-auto">
-                                                                                {/* <input type="text" placeholder="Narration" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
-                                                                                onChange={(e) => handleRowInputChange(rowIndex,'narration',e.target.value)}
-                                                                                value={row.narration}
-                                                                                 /> */}
+                                                                                
                                                                                  <textarea
                                                                              placeholder="Narration" 
                                                                            className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded

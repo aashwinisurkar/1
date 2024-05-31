@@ -17,3 +17,91 @@ background-image: url('/img/homepageimg.png');
     display: block; 
     margin: 0 auto; 
 }
+
+.serviceBox {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 25px 35px 40px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  
+}
+.serviceBox:before,
+.serviceBox:after {
+    content: "";
+    background-color:#3949AB;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 3px;
+    margin-left: 5px;
+    box-shadow: 0px 0px 0px 7px rgba(119, 71, 177, 0.2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.serviceBox:after {
+    background-color: #fff;
+    height: auto;
+    border-radius: 50%/15%;
+    top: 0;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.serviceBox .service-icon {
+    color:purple;
+    font-size: 35px;
+  align-items: center;
+    /*margin: 0 0 20px;*/
+}
+
+.serviceBox .title {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px;
+}
+
+.serviceBox .description {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: 0;
+}
+
+.serviceBox.popti {
+    --main-color:var(--main-colorcompany);
+}
+
+.serviceBox.red {
+    --main-color: #FF4E01;
+}
+
+.serviceBox.green {
+    --main-color: #008B85;
+}
+
+.serviceBox.orange {
+    --main-color: #FF7C19;
+}
+
+@media only screen and (max-width: 1199px) {
+.serviceBox {
+    margin: 0 0 30px;
+}
+}
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import api from './ApiLink.mjs';
 import * as ExcelJS from 'exceljs';
-import UpdatePlazareport from './UpdatePlazareport';
+import UpdatePlazareport from './UpdatePlazareport'; 
 import Updateplazapreport from './Updateplazapreport';
 
 const PAGE_SIZE = 10;
@@ -255,7 +255,7 @@ const total_sum = {
   }
   const fdate = (value) =>{
     const date = new Date(value);
-    const formattedDate = `${date.getDate()}-${date.toLocaleString('default', { month: 'short' }).toUpperCase()}-${date.getFullYear()}`;
+    const formattedDate = `${date.getDate()}-${date.toLocaleString("default", { month: "short" }).toUpperCase()}-${date.getFullYear()}`;
     return formattedDate;
   }
   const gen = () =>{

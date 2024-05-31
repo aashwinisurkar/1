@@ -564,9 +564,9 @@ const allMonths = uniqueMonths.map(month => {
     <>
     {showinfo ? 
     <div className="mt-12">
-      <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
+      <div className="mb-12 grid justify-center gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
         
-      <button onClick={table1}>
+      {/* <button onClick={table1}>
           <StatisticsCard
                 key="Total Collection"
                 title="Total Collection"
@@ -575,9 +575,24 @@ const allMonths = uniqueMonths.map(month => {
                 })}
                 value = {formatnum(totalcoll)}
             />
-      </button>
+      </button> */}
+       
+       
+            <button  onClick={table1} className="w-[290px]">
+                <div className="serviceBox popti">
+                    <div className="service-icon justify-center py-1">
+                        <i class="ri-dashboard-fill">{React.createElement(BanknotesIcon, {
+ className: "w-[50px] h-[60px] items-center ml-[80px]",
+                })}</i>
+                    </div>
+                    <h3 className="title">Total Collection</h3>
+                    <div>{formatnum(totalcoll)}</div>
+                </div>
+                
+            </button>
+      
 
-      <button onClick={table2}> 
+      {/* <button onClick={table2}> 
           <StatisticsCard
             key="Expenses"
             title="Expenses"
@@ -586,13 +601,24 @@ const allMonths = uniqueMonths.map(month => {
             })}
             value = {formatnum(expense)}
           />
-          {/* </IconButton> */}
-           {/* </MenuHandler> */}
-           
-          {/* menulist start */}
-          {/* menulist end */}
-          </button>
-          <button onClick={table3} >
+         
+          </button> */}
+         <button  onClick={table2} className="w-[290px]">
+                <div className="serviceBox popti">
+                    <div className="service-icon justify-center py-1">
+                        <i>{React.createElement(ChartBarIcon, {
+               className: "w-[50px] h-[60px] items-center ml-[80px]",
+                })}</i>
+                    </div>
+                    <h3 className="title">Expenses</h3>
+                    <div>{formatnum(expense)}</div>
+                </div>
+                
+            </button>
+
+
+          
+          {/* <button onClick={table3} >
           <StatisticsCard
             key="Fast Tag"
             title="Fast Tag Collection"
@@ -601,8 +627,20 @@ const allMonths = uniqueMonths.map(month => {
             })}
             value = {formatnum(fst)}
           />
-          </button>
-          <button  onClick={table4}>
+          </button> */}
+          <button  onClick={table3} className="w-[290px]">
+                <div className="serviceBox popti">
+                    <div className="service-icon justify-center py-1">
+                        <i>{React.createElement(TicketIcon, {
+              className: "w-[50px] h-[60px] items-center ml-[80px]",
+                })}</i>
+                    </div>
+                    <h3 className="title">Fast Tag Collection</h3>
+                    <div>{formatnum(fst)}</div>
+                </div>
+                
+            </button>
+          {/* <button  onClick={table4}>
           <StatisticsCard
             key="plaza"
             title="Active Plaza"
@@ -611,7 +649,19 @@ const allMonths = uniqueMonths.map(month => {
             })}
             value = {plaza}
           />
-          </button>
+          </button> */}
+          <button  onClick={table4} className="w-[290px]">
+                <div className="serviceBox popti">
+                    <div className="service-icon justify-center py-1">
+                        <i>{React.createElement(BuildingStorefrontIcon, {
+                className: "w-[50px] h-[60px] items-center ml-[80px]",
+                })}</i>
+                    </div>
+                    <h2 className="title ">Active Plaza</h2>
+                    <div>{formatnum(plaza)}</div>
+                </div>
+                
+            </button>
         
       </div>
 

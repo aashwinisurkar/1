@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import api from './ApiLink.mjs';
 import Updexpense from './Updexpense';
+import Addexpense from '@/Addexpense';
 import CryptoJS from 'crypto-js';
 import {
     TrashIcon,
@@ -18,28 +19,63 @@ import {
     DialogHeader,
     DialogBody,
     DialogFooter, 
-    Alert
+    Alert,
+    Input
   } from "@material-tailwind/react";
 export default function Expenseheadtb() {
-    const [plazaPerPage, setplazaPerPage] = useState(5);
+    const [plazaPerPage, setplazaPerPage] = useState(10);
     const [Plaza_TABLE_ROWS, SET_Plaza_TABLE_ROWS] = useState([]);
     const [plazacurrentPage, setplazaCurrentPage] = useState(1);
+    const [plazaModalOpen, setPlazaModalOpen] = useState(false);
     const [showdialog,setshowdialog] = useState(false);
     const [user_id,set_user_id] = useState('');
     const [plaza_det,setplazadet] = useState([]);
-    const plazaPages = Math.ceil(Plaza_TABLE_ROWS.length/ plazaPerPage);
+    const [ searchData , setSearchData] = useState();
+    const [showAddDialog, setShowAddDialog] = useState(false);
+    
+
+
+
+    const filteredData= Plaza_TABLE_ROWS.filter((item) =>
+      item.name.toLowerCase().includes(searchData ?.toLowerCase() ||''));
+    
+    const plazaPages = Math.ceil(filteredData.length/ plazaPerPage);
     const plazaIndexOfLastItem = plazacurrentPage * plazaPerPage;
   const plazaIndexOfFirstItem = plazaIndexOfLastItem - plazaPerPage;
-  const plazacurrentItems = Plaza_TABLE_ROWS.slice(plazaIndexOfFirstItem, plazaIndexOfLastItem);
+  // const currentItems = filteredData.slice(indexOfFirstIte, indexOfLastIte);
+  const plazacurrentItems = filteredData.slice(plazaIndexOfFirstItem, plazaIndexOfLastItem);
+
+
+
+  const handleSearch = (e) => {
+    setSearchData(e.target.value);
+  };
+
+  const handleClear = () => {
+    setSearchData("");
+  };
+  const openPlazaModal = () => {
+    setPlazaModalOpen(!plazaModalOpen);
+  };
+
+  const closePlazaModal = () => {
+    setPlazaModalOpen(false);
+  };
+
   const plazapaginate = (pageNumber) =>{
     setplazaCurrentPage(pageNumber);
   }
   const editexpense = (rowData) =>{
-    // console.log(rowData);
-    // seteditplaza(!editplazaf);
+   
     setshowdialog(!showdialog);
     setplazadet(rowData);
   }
+  const openAddExpenseModal = () => {
+    setShowAddDialog(true);
+  };
+
+
+ 
 
   const decryptAndRetrieveData = (key) => {
     const encryptedData = localStorage.getItem('encryptedData');
@@ -73,28 +109,113 @@ export default function Expenseheadtb() {
     const decrydata1 = decryptAndRetrieveData("Harry");
     set_user_id(decrydata1.user.id);
 
-    fetch(api + 'expensehead')
-        .then((response) => response.json())
-        .then((data) => {
-          // SET_TABLE_ROWS(data.data);
-          // console.log(data);
-          SET_Plaza_TABLE_ROWS(data);
-        })
-        .catch((error) => {
-          console.error('Error Fetching Data: ', error);
-        });
-        tabdata();
-        const refresh = setInterval(tabdata,10000);
-
+    tabdata();
+   const refresh = setInterval(tabdata, 10000);
+   return () => clearInterval(refresh);
   },[]);
   return (
     <>
+
+{/* <Dialog
+        open={
+          size === "xs" ||
+          size === "sm" ||
+          size === "md" ||
+          size === "lg" ||
+          size === "xl" ||
+          size === "xxl"
+        }
+        size={size || "xs"}
+        handler={handleplazaEditClick}
+      >
+        <div className='flex justify-center items-center'>
+        <DialogHeader className='text-red-800 text-[40px]' >Warning</DialogHeader>
+        </div>
+        <div className='flex justify-center items-center '>
+        <DialogBody className='text-[20px]'>
+          Are you sure you want to delete plaza?
+        </DialogBody>
+        </div>
+        <DialogFooter>
+          <Button
+            variant="text"
+            color="green"
+            onClick={() => handleplazaEditClick(nullvar)}
+            className="mr-1"
+          >
+            <span>Cancel</span>
+          </Button>
+          <Button
+            variant="gradient"
+            color="red"
+            onClick={() => deletePlaza(plazaid)}
+          >
+            <span>Delete</span>
+          </Button>
+        </DialogFooter>
+      </Dialog> */}
+    
+
+{/* {plazaModalOpen && (
+
+<div className='w-[150px]'>
+    <Addexpense
+      userid={user_id}
+    />
+</div>
+)} */}
+
+{plazaModalOpen && (
+
+<div className='w-[150px]'>
+<Addexpense
+userid={user_id}
+/>
+</div>
+)}
+
+
+ {showdialog ? 
+        <div className='w-[150px]'>
+        <Updexpense
+              userid={user_id}
+              plazaname={plaza_det.name}
+              plazaid={plaza_det.id}
+              check={plaza_det.show_in}
+        />
+        </div>
+        :<div></div>}
+
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
-          <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
-            <Typography variant="h6" color="white">
-              Expense Head
-            </Typography>
+          <CardHeader variant="gradient" color="blue" className="mb-8 py-2">
+          <div className="flex justify-between items-center">
+        <Typography variant="h4" >
+                Add Expense
+                </Typography>
+        <div className="  justify-start flex">
+        <div className='ml-30 relative flex items-center'>
+       <Input
+            type="search" 
+            value={searchData}
+            placeholder="Search users" 
+            className="border border-gray-300 text-gray-800 rounded px-4 py-2 "
+            onChange={handleSearch}
+          /> 
+         
+       </div>
+       <div className='mr-10'>
+          <Button
+          className='buttons py-3 bg-blue-800 focus-within:shadow-lg   ml-[150px] px-8'
+          color='gray'
+        onClick={openPlazaModal}>Add</Button>
+          </div>
+          
+        </div>
+      
+      </div>
+
+
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
             <table className="w-full min-w-[640px] table-auto">
@@ -135,34 +256,12 @@ export default function Expenseheadtb() {
                               className="font-semibold"
                             >
                               {name.toUpperCase()}
-                              <Typography className='hidden'>{id}{show_in}</Typography>
+                              {/* <Typography className='hidden'>{id}{show_in}</Typography> */}
                             </Typography>
                           </div>
                         </div>
                       </td>
-                      {/* <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {addr.toUpperCase()}<Typography className='hidden'>{plaza_id}{valid_from}{valid_to}{opn_amt}</Typography>
-                        </Typography>
-                      </td> */}
-                      {/* <td className={className}>
-                        <Chip
-                          variant="gradient"
-                          color={is_active === '1' ? "green" : "blue-gray"}
-                          value={is_active === '1' ? "ONLINE" : "OFFLINE"}
-                          className="py-0.5 px-2 text-[11px] font-medium w-fit"
-                        />
-                      </td> */}
-                      {/* <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {remitance}
-                        </Typography>
-                      </td>
-                      <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {opn_amt}
-                        </Typography>
-                      </td> */}
+                     
                       <td className={className}>
                         <div className='flex justify-start items-start'>
                         {/* <Typography
@@ -207,17 +306,21 @@ export default function Expenseheadtb() {
             </div>
           </CardBody>
         </Card>
-        {showdialog ? 
-        <div className='w-[150px]'>
-        <Updexpense
-              userid={user_id}
-              plazaname={plaza_det.name}
-              plazaid={plaza_det.id}
-              check={plaza_det.show_in}
-        />
+
+        {/* {plazaModalOpen && (
+
+      <div className='w-[150px]'>
+    <Addexpense
+      userid={user_id}
+    />
+</div>
+)} */}
+
+
+        
+ 
         </div>
-        :<div></div>}
-        </div>
+       
     </>
   )
 }

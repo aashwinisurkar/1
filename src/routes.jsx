@@ -5,6 +5,7 @@ import {
   CurrencyRupeeIcon,
   PencilSquareIcon,
   BanknotesIcon,
+  ArchiveBoxXMarkIcon,
   ArchiveBoxIcon,
   PlusCircleIcon,
   DocumentChartBarIcon,
@@ -12,7 +13,8 @@ import {
   WalletIcon,
   Square3Stack3DIcon
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Opening_report, Remitance, AdminEntry, Hoexpenserep, ExpenseHead, Cons,Weekly_rem_report,HoexpDetail,Month_wise_report,TpexpDetail,Salprov,Tpexpsum,Daily_rem_report } from "@/pages/dashboard";
+import { Home, Profile,Tables,Plazatable, Opening_report, Remitance, AdminEntry, Hoexpenserep, 
+  ExpenseHead, Cons,Weekly_rem_report,HoexpDetail,Month_wise_report,TpexpDetail,Salprov,Tpexpsum,Daily_rem_report } from "@/pages/dashboard";
 import { element } from "prop-types";
 
 const icon = {
@@ -129,6 +131,13 @@ export const routes = [
             path: "/tables",
             element: <Tables />,
           },
+
+          {
+            icon: < ArchiveBoxXMarkIcon  {...icon} />,
+            name: " Plaza Master",
+            path: "/plazauser ",
+            element: <Plazatable/>,
+          }
         ],
       },
       {
@@ -138,6 +147,10 @@ export const routes = [
       {
         path: "/tables",
         element: <Tables />,
+      },
+      {
+        path: "/plazauser",
+        element: <Plazatable />,
       },
       {
         path: "/report/plazarep",
@@ -196,58 +209,3 @@ export const routes = [
 ];
 
 export default routes;
-
-// {
-//   icon:<WalletIcon {...icon}/>,
-//   name:"Salary Provision",
-//   path:"/salaryprovison",
-//   element:<Salprov />,
-// },
-
-
-// {
-//   icon:<Square3Stack3DIcon {...icon} />,
-//   name:"Expense Summary",
-//   subRoutes:[
-    
-//   ]
-// },
-
-
-// {
-//   icon:<Square3Stack3DIcon {...icon} />,
-//   name:"Expense Summary",
-//   subRoutes:[
-//     {
-//       icon:<Square3Stack3DIcon {...icon} />,
-//       name:"Plaza Summary",
-//       path:"/report/toll/expnese",
-//       element:<Remitance />,
-//     },
-//     {
-//       icon:<Square3Stack3DIcon {...icon} />,
-//       name:"Plaza Summary",
-//       path:"/report/toll/expnesesum",
-//       element:<Remitance />,
-//     },
-//   ]
-// },
-
-// {
-//   icon:<Square3Stack3DIcon {...icon} />,
-//   name:"Expense Summary",
-//   subRoutes:[
-//     {
-//       icon:<Square3Stack3DIcon {...icon} />,
-//       name:"Plaza Summary",
-//       path:"/report/toll/expnese",
-//       element:<Remitance />,
-//     },
-//     {
-//       icon:<Square3Stack3DIcon {...icon} />,
-//       name:"Plaza Summary",
-//       path:"/report/toll/expnesesum",
-//       element:<Remitance />,
-//     },
-//   ],
-// },

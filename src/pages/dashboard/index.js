@@ -1,6 +1,7 @@
 export * from "@/pages/dashboard/home";
 export * from "@/pages/dashboard/profile";
 export * from "@/pages/dashboard/tables";
+export * from "@/pages/dashboard/plazauser";
 export * from "@/pages/dashboard/notifications";
 export * from "@/pages/dashboard/entry";
 export * from "@/pages/dashboard/ophome";
