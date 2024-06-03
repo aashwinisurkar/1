@@ -586,7 +586,7 @@ const allMonths = uniqueMonths.map(month => {
                 })}</i>
                     </div>
                     <h3 className="title">Total Collection</h3>
-                    <div>{formatnum(totalcoll)}</div>
+                    <div className="font-bold text-[20px]">{formatnum(totalcoll)}</div>
                 </div>
                 
             </button>
@@ -611,7 +611,7 @@ const allMonths = uniqueMonths.map(month => {
                 })}</i>
                     </div>
                     <h3 className="title">Expenses</h3>
-                    <div>{formatnum(expense)}</div>
+                    <div className="font-bold text-[20px]">{formatnum(expense)}</div>
                 </div>
                 
             </button>
@@ -636,7 +636,7 @@ const allMonths = uniqueMonths.map(month => {
                 })}</i>
                     </div>
                     <h3 className="title">Fast Tag Collection</h3>
-                    <div>{formatnum(fst)}</div>
+                    <div className="font-bold">{formatnum(fst)}</div>
                 </div>
                 
             </button>
@@ -658,7 +658,7 @@ const allMonths = uniqueMonths.map(month => {
                 })}</i>
                     </div>
                     <h2 className="title ">Active Plaza</h2>
-                    <div>{formatnum(plaza)}</div>
+                    <div className="font-bold text-[20px]">{formatnum(plaza)}</div>
                 </div>
                 
             </button>
@@ -669,17 +669,17 @@ const allMonths = uniqueMonths.map(month => {
       {/* grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-2  */}
       <Collapse open={open}>
         <Card className="my-4 mx-auto w-[85%]">
-        <CardBody className=" px-0 pt-0 pb-2">
+        <CardBody className=" px-4 pt-0 pb-2">
             <table className="w-full min-w-[640px] table-auto">
               <thead>
                 <tr>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-center">
+                    <Typography variant="small" className="text-[14px] font-bold ml-11 uppercase text-blue-gray-400 text-left ">
                      Plaza Name
                     </Typography>
                   </th>
-                  <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-right">
+                  <th className="border-b border-blue-gray-50 py-3 px-5  text-left">
+                    <Typography variant="small" className="text-[14px] font-bold uppercase text-blue-gray-400 text-right">
                       Total Collection
                     </Typography>
                   </th>
@@ -709,7 +709,7 @@ const allMonths = uniqueMonths.map(month => {
                         </div>
                       </td>
                       <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600 text-right">
+                        <Typography className="text-xs font-semibold pr-5 text-blue-gray-600 text-right">
                           {formatnum(total_collection)}
                         </Typography>
                       </td>
@@ -728,12 +728,12 @@ const allMonths = uniqueMonths.map(month => {
               <thead>
                 <tr>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-center">
+                    <Typography variant="small" className="text-[14px] ml-11 font-bold uppercase text-blue-gray-400 text-left ">
                      Plaza Name
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[14px] font-bold uppercase  mr-5 text-blue-gray-400 text-right">
                       Total Expenses
                     </Typography>
                   </th>
@@ -741,7 +741,7 @@ const allMonths = uniqueMonths.map(month => {
               </thead>
               <tbody>
                 {currentItems1.map(({ name, total_collection }, key) => {
-                  const className = `py-3 px-5 ${
+                  const className = `py-3 px-5 ml-10 ${
                     key === currentItems.length - 1
                       ? ""
                       : "border-b border-blue-gray-50"
@@ -750,7 +750,7 @@ const allMonths = uniqueMonths.map(month => {
                   return (
                     <tr key={name}>
                       <td className={className}>
-                        <div className="flex items-center gap-4 text-center">
+                        <div className="flex items-center  gap-4 text-center">
                           <div>
                             <Typography
                               variant="small"
@@ -763,7 +763,7 @@ const allMonths = uniqueMonths.map(month => {
                         </div>
                       </td>
                       <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600 text-right">
+                        <Typography className="text-xs font-semibold text-blue-gray-600 ml-5 text-right">
                           {formatnum(total_collection)}
                         </Typography>
                       </td>
