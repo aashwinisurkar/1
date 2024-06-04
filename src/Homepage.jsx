@@ -166,7 +166,7 @@ if (ResponseMessage.includes('Invalid email') && ResponseMessage.includes('Inval
 
   return (
     // <div className="h-screen bg-cover bg-gradient-to-br from-red-200 via-purple-300 to-yellow-200 animate-color">
-       <div className="h-screen ">
+       <div className="s-screen ">
       
       <div className="flex min-h-full flex-1 flex-col justify-center px-5 py-6 lg:px-6  ">
         

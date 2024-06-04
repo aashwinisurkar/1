@@ -1,4 +1,4 @@
-.h-screen{
+.s-screen{
 
 background-image: url('/img/homepageimg.png');
   background-size: auto;
@@ -30,12 +30,11 @@ background-image: url('/img/homepageimg.png');
 .serviceBox:before,
 .serviceBox:after {
     content: "";
-    background-color:#3949AB;
+    background-color:hsla(38, 85%, 47%, 0.934) ;
     height: 100px;
     border-radius: 50%;
     margin-right: 3px;
-    margin-left: 5px;
-    box-shadow: 0px 0px 0px 7px rgba(119, 71, 177, 0.2);
+    box-shadow: 2px 2px 7px 1px #FFBF00;
     position: absolute;
     left: 0;
     right: 0;
@@ -54,7 +53,7 @@ background-image: url('/img/homepageimg.png');
 }
 
 .serviceBox .service-icon {
-    color:purple;
+    color:#3949AB;
     font-size: 35px;
   align-items: center;
     /*margin: 0 0 20px;*/

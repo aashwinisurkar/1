@@ -14,6 +14,7 @@ import { useMaterialTailwindController, setOpenSidenav } from "@/context";
 import CryptoJS from "crypto-js";
 import { useEffect, useState } from "react";
 
+
 export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavColor, sidenavType, openSidenav } = controller;
@@ -23,6 +24,8 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const sidenavTypes = {
+    amber:"bg-gradient-to-br from-yellow-400 to-yellow-600",
+
     dark: "bg-gradient-to-br from-gray-800 to-gray-900",
     white: "bg-white shadow-sm",
     transparent: "bg-transparent",

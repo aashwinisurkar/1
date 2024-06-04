@@ -171,16 +171,19 @@ export function Home() {
         { suffix: 'Cr', threshold: 1e7 },
         { suffix: 'L', threshold: 1e5 },
         { suffix: 'K', threshold: 1e3 },
-        { suffix: '', threshold: 1 },
+        { suffix: '', threshold: 0 },
       ];
     
       const found = map.find((x) => Math.abs(num) >= x.threshold);
       if (found) {
-        const formatted = (num / found.threshold).toFixed(precision) + found.suffix;
+        // Handle the case where precision is 0
+        const formatted = found.threshold === 0
+          ? Math.floor(num).toString() // No decimal point for the last object
+          : (num / found.threshold).toFixed(precision) + found.suffix;
         return formatted;
       }
     
-      return num;
+      return num.toString();
     }
 
     const decryptAndRetrieveData = (key) => {
@@ -585,7 +588,7 @@ const allMonths = uniqueMonths.map(month => {
  className: "w-[50px] h-[60px] items-center ml-[80px]",
                 })}</i>
                     </div>
-                    <h3 className="title">Total Collection</h3>
+                    <h3 className="title text-blue-gray-600">Total Collection</h3>
                     <div className="font-bold text-[20px]">{formatnum(totalcoll)}</div>
                 </div>
                 
@@ -610,7 +613,7 @@ const allMonths = uniqueMonths.map(month => {
                className: "w-[50px] h-[60px] items-center ml-[80px]",
                 })}</i>
                     </div>
-                    <h3 className="title">Expenses</h3>
+                    <h3 className="title text-blue-gray-600">Expenses</h3>
                     <div className="font-bold text-[20px]">{formatnum(expense)}</div>
                 </div>
                 
@@ -635,7 +638,7 @@ const allMonths = uniqueMonths.map(month => {
               className: "w-[50px] h-[60px] items-center ml-[80px]",
                 })}</i>
                     </div>
-                    <h3 className="title">Fast Tag Collection</h3>
+                    <h3 className="title text-blue-gray-600">Fast Tag Collection</h3>
                     <div className="font-bold">{formatnum(fst)}</div>
                 </div>
                 
@@ -657,7 +660,7 @@ const allMonths = uniqueMonths.map(month => {
                 className: "w-[50px] h-[60px] items-center ml-[80px]",
                 })}</i>
                     </div>
-                    <h2 className="title ">Active Plaza</h2>
+                    <h2 className="title text-blue-gray-600 ">Active Plaza</h2>
                     <div className="font-bold text-[20px]">{formatnum(plaza)}</div>
                 </div>
                 
@@ -668,18 +671,18 @@ const allMonths = uniqueMonths.map(month => {
       <div className="mt-[-48px] mb-12 w-full ">
       {/* grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-2  */}
       <Collapse open={open}>
-        <Card className="my-4 mx-auto w-[85%]">
-        <CardBody className=" px-4 pt-0 pb-2">
-            <table className="w-full min-w-[640px] table-auto">
-              <thead>
+        <Card className="my-4 mx-auto w-10/12">
+        <CardBody className=" px-0 pt-0 pb-2">
+            <table className="w-full w-10/11 table-auto">
+              <thead className="bg-blue-600">
                 <tr>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[14px] font-bold ml-11 uppercase text-blue-gray-400 text-left ">
+                    <Typography variant="small" className="text-[13px] font-bold ml-11 uppercase text-black -blue-gray-400 text-left ">
                      Plaza Name
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5  text-left">
-                    <Typography variant="small" className="text-[14px] font-bold uppercase text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[14px] font-bold uppercase text-black -blue-gray-400 text-right">
                       Total Collection
                     </Typography>
                   </th>
@@ -694,7 +697,7 @@ const allMonths = uniqueMonths.map(month => {
                   }`;
 
                   return (
-                    <tr key={name}>
+                    <tr key={name} className="even:bg-blue-gray-50/50">
                       <td className={className}>
                         <div className="flex items-center gap-4 text-center">
                           <div>
@@ -722,18 +725,18 @@ const allMonths = uniqueMonths.map(month => {
         </Card>
       </Collapse>
       <Collapse open={open1}>
-        <Card className="my-4 mx-auto w-8/12">
+        <Card className="my-4 mx-auto w-10/12">
         <CardBody className=" px-0 pt-0 pb-2">
-            <table className="w-full min-w-[640px] table-auto">
-              <thead>
+            <table className="w-full w-10/11 table-auto">
+              <thead className="bg-blue-600">
                 <tr>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[14px] ml-11 font-bold uppercase text-blue-gray-400 text-left ">
+                    <Typography variant="small" className="text-[13px] ml-11 font-bold uppercase text-black  -blue-gray-400 text-left ">
                      Plaza Name
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[14px] font-bold uppercase  mr-5 text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[13px] font-bold uppercase  mr-5 text-black   -blue-gray-400 text-right">
                       Total Expenses
                     </Typography>
                   </th>
@@ -776,18 +779,18 @@ const allMonths = uniqueMonths.map(month => {
         </Card>
       </Collapse>
       <Collapse open={open2}>
-        <Card className="my-4 mx-auto w-8/12">
+        <Card className="my-4 mx-auto w-10/12">
         <CardBody className=" px-0 pt-0 pb-2">
-            <table className="w-full min-w-[640px] table-auto">
-              <thead>
-                <tr>
+            <table className="w-full w-10/11 table-auto border rounded-lg">
+              <thead className="bg-blue-600">
+                <tr >
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-center">
+                    <Typography variant="small" className="text-[13px] mr-20 font-bold uppercase text-black text-center">
                      Plaza Name
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[13px] font-bold uppercase text-black text-right">
                       Total Fast Tag Collection
                     </Typography>
                   </th>
@@ -802,7 +805,7 @@ const allMonths = uniqueMonths.map(month => {
                   }`;
 
                   return (
-                    <tr key={name}>
+                    <tr key={name} className="even:bg-blue-gray-50/50">
                       <td className={className}>
                         <div className="flex items-center gap-4 text-center">
                           <div>
@@ -830,34 +833,34 @@ const allMonths = uniqueMonths.map(month => {
         </Card>
       </Collapse>
       <Collapse open={open3}>
-        <Card className="my-4 mx-auto w-8/12">
-        <CardBody className=" px-0 pt-0 pb-2">
+        <Card className="my-4 mx-auto  w-10/12">
+        <CardBody className=" flex px-0 pt-0 pb-2">
        
-            <table className="w-full min-w-[640px] table-auto">
-              <thead>
+            <table className="w-full  w-10/11 table-auto">
+              <thead className="bg-blue-600">
                 <tr>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-center">
+                    <Typography variant="small" className="text-[13px] font-bold uppercase text-black  text-center">
                      Plaza Name
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[13px] font-bold uppercase text-black text-right">
                       Address
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[13px] font-bold uppercase text-black text-right">
                       Valid From
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[13px] font-bold uppercase text-black text-right">
                       Valid To
                     </Typography>
                   </th>
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400 text-right">
+                    <Typography variant="small" className="text-[13px] font-bold uppercase text-black text-right">
                       Plaza Type
                     </Typography>
                   </th>
@@ -872,7 +875,7 @@ const allMonths = uniqueMonths.map(month => {
                   }`;
 
                   return (
-                    <tr key={name}>
+                    <tr key={name} className="even:bg-blue-gray-50/50">
                       <td className={className}>
                         <div className="flex items-center gap-4 ">
                           <div>

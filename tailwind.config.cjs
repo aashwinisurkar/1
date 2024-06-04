@@ -25,6 +25,9 @@ module.exports = withMT({
         'xs': {min : '320px' , max:'567px'},
         // => @media (min-width: 992px) { ... }
       },
+      boxShadow: {
+        'yellow': '5px 0px 0px 5px rgba(255, 255, 0, 0.2)',
+      },
     },
   },
   plugins: [],

@@ -31,7 +31,7 @@ export default function HoReport() {
   const [showform,setshowform] = useState(false);
   const [showlist,setshowlist] = useState(true);
   const [showTable,setshowTable] = useState(false);
-  const [rowData, setrowData] = useState([]);
+  const [editrowData, setEditRowData] = useState([]);
 
   const [datetd,setdatetd] = useState('');
   const [plaza_id,setplaza_id] = useState('');
@@ -47,10 +47,10 @@ export default function HoReport() {
 
   const handleEditRowInputChange = (index, fieldName, value) => {
     // console.log(rowData);
-    const updatedRows = [...rowData];
+    const updatedRows = [...editrowData];
     updatedRows[index][fieldName] = value;
-    setrowData(updatedRows);
-    const totalExpenseAmount = rowData.reduce((total, row) => total + parseFloat(row.amount || 0), 0);
+    setEditRowData(updatedRows);
+    const totalExpenseAmount = editrowData.reduce((total, row) => total + parseFloat(row.amount || 0), 0);
     handleEditInputChange("cash_kpt", totalExpenseAmount);
     // const totalExpenseAmount = rowData.reduce((total, row) => total + parseFloat(row.amount || 0), 0);
 };
@@ -85,7 +85,7 @@ const handleEditHoExpense  = (data) =>{
     voucherno: data.voucher_no,
     narration: data.narration,
   };
-  setrowData([...rowData, newRow]);
+  setEditRowData([...editrowData, newRow]);
   openingamount(data.plaza_code);
   let tn=[newRow];
     const totalExpenseAmount = tn.reduce((total, row) => total + parseFloat(row.amount || 0), 0);
@@ -96,7 +96,7 @@ const handleEditHoExpense  = (data) =>{
     edithandleDateChange('test',data.date_rep);
     console.log(data.report_id,'report_id');
 
-  //setrowData(updatedRows);
+  //setEditRowData(updatedRows);
 
 
 
@@ -107,8 +107,8 @@ const handleEditHoExpense  = (data) =>{
 const goback = () =>{
   setpid(0);
   //reseteditForm();
-  setrowData([]);
-  console.log(rowData,'rows');
+  setEditRowData([]);
+  console.log(editrowData,'rows');
   setshowform(false);
   setshowlist(true);
 
@@ -116,7 +116,7 @@ const goback = () =>{
   // setplaza_id(data.plaza_code);
   // setpid(0);
   //resetForm();
-  // setrowData([]);
+  // setEditRowData([]);
 
 }
 
@@ -124,7 +124,7 @@ const goback = () =>{
 
 const feditdate = (value) =>{
   const date = new Date(value);
-  const formattedDate = `${date.getDate()}-${date.toLocaleString('default', { month: 'short' }).toUpperCase()}-${date.getFullYear()}`;
+  const formattedDate = '${date.getDate()}-${date.toLocaleString("default", { month: "short" }).toUpperCase()}-${date.getFullYear()}';
   return formattedDate;
 }
 
@@ -137,7 +137,7 @@ const feditdate = (value) =>{
       voucherno: '',
       narration: ''
     };
-    setrowData([...rowData, newRow]);
+    setEditRowData([...editrowData, newRow]);
     // console.log(rowData);
   };
   const [editformData, setEditFormData] = useState({
@@ -176,9 +176,9 @@ const feditdate = (value) =>{
 const handleDeleteRow = (index) => {
   // console.log(index);
   // console.log(rowData);
-const updatedRows = [...rowData];
+const updatedRows = [...editrowData];
   updatedRows.splice(index, 1);
-  setrowData(updatedRows);
+  setEditRowData(updatedRows);
   
   // console.log(updatedRows);
 };
@@ -218,7 +218,7 @@ if(res.ok){
 
 
 const handlesubmit  = async() =>{
-  const totalExpenseAmount = rowData.reduce((total, row) => total + parseFloat(row.amount || 0), 0);
+  const totalExpenseAmount = editrowData.reduce((total, row) => total + parseFloat(row.amount || 0), 0);
   const setEmptyFieldsToZero = (obj) => {
     for (let key in obj) {
       // console.log(key);
@@ -239,7 +239,7 @@ const handlesubmit  = async() =>{
     total_coll:         ((parseFloat(editformData.total_fast_tag_cl)+parseFloat(editformData.short_amt_adj)) - parseFloat(editformData.excess_amt_adj))+(parseFloat(editformData.total_cash_recievable)+parseFloat(editformData.balaji)+parseFloat(editformData.monthly_pass_amt)),
     short_excess_tc:    (parseFloat(editformData.total_cash_rec)-(parseFloat(editformData.total_cash_recievable)+parseFloat(editformData.balaji)+parseFloat(editformData.monthly_pass_amt))),
     cash_kpt : totalExpenseAmount,
-    expensetype: rowData,
+    expensetype: editrowData,
     plaza_code:pid,
     user_id : user_id,
     remitance:rem,
@@ -294,7 +294,7 @@ const openingamount = async(value) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
+    return` ${year}-${month}-${day}`;
   };
   setpid(value);
   const today = new Date();
@@ -339,7 +339,7 @@ const openingamount = async(value) => {
 
   const fdate = (value) =>{
     const date = new Date(value);
-    const formattedDate = `${date.getDate()}-${date.toLocaleString('default', { month: 'short' }).toUpperCase()}-${date.getFullYear()}`;
+    const formattedDate =` ${date.getDate()}-${date.toLocaleString('default', { month: 'short' }).toUpperCase()}-${date.getFullYear()}`;
     return formattedDate;
   }
 
@@ -376,7 +376,10 @@ const openingamount = async(value) => {
   useEffect(() => {
 
     const decrydata = decryptAndRetrieveData("Harry");
- 
+   // const currentDate = new Date().toISOString().split('T')[0];
+    
+    // setdatetd(currentDate);
+    // setplaza_id(decrydata.user.pid);
     set_user_id(decrydata.user.id);
 
     fetch(api+'expensehead')
@@ -405,7 +408,7 @@ const openingamount = async(value) => {
      {showlist &&
      <>
     <div className='bg-gray-100 h-[100%] mb-[400px]'>
-      <div className='my-5 ml-[-150px]'>
+      <div className='my-5 ml-[-70px] flex '>
         <form>
             <div className='flex flex-row '>
         <div className="text-[20px] mt-[5px]"> From </div> 
@@ -466,18 +469,18 @@ const openingamount = async(value) => {
         </div>
         {showTable?
         <>
-        <div className="overflow-x-auto w-[100%] mt-10">
+        <div className="overflow-x-auto w-[1000px] border-blue-500 px-4  mt-10">
         <Card className="h-full w-full">
-          <table className="w-full min-w-max table-auto text-left">
+          <table className="w-full min-w-max  table-auto text-left">
             <thead>
               
               <tr>
                 {TABLE_HEAD1.map((head) => (
-                  <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 p-4 w-[30px] font-bold">
+                  <th key={head} className="border-2 border-blue-gray-100 bg-blue-500 text-white p-4 w-[30px] font-bold">
                     <Typography
-                      variant="small"
-                      color="black"
-                      className="font-bold leading-none opacity-70"
+                      variant="normal"
+                      color="white"
+                      className="font-bold leading-none opacity-90"
                     >
                       {head}
                     </Typography>
@@ -487,7 +490,7 @@ const openingamount = async(value) => {
             </thead>
             <tbody>
               {TABLE_ROWS.map(({id,plaza_code,exp_id,voucher_no, date_rep, plaza,name,amount,narration,report_id }, index) => (
-                <tr key={date_rep} className="even:bg-blue-gray-50/50 ">
+                <tr key={date_rep} className="even:bg-blue-100/50 ">
                   <td className="p-3 border-2 w-[30px]">
                     <Typography variant="small" color="blue-gray" className="font-normal">
                       {index+1}
@@ -521,13 +524,21 @@ const openingamount = async(value) => {
                   
                   <td className="p-1 border-2 w-[30px] text-center">
                          <div className='flex justify-start items-start'>
-                        
-                        <div className=' mt-[-3px] sh-5 w-5 mx-5 cursor-pointer '>
+                          {/* <Typography
+                          as="a"
+                          href="#"
+                          className="text-xs font-semibold text-blue-gray-600"
+                          onClick={() => handleplazaEditClick({ name, addr, is_active,role_id,plaza,plaza_id,id,mobile,email,value:'xs' })}
+                        > */}
+                        <div className=' flex mt-[-3px] sh-5 w-10 cursor-pointer '>
                           <PencilSquareIcon color='green'
                           onClick={() => handleEditHoExpense({id,date_rep,plaza_code,exp_id,voucher_no,plaza,name,amount,narration,report_id })}
                           />
+                          <TrashIcon color="red" onClick={()=>deleteHoExpense(id)} className="h-5 w-10 cursor-pointer" />
                           </div>
-                          
+                          {/* <div className=' mt-[-3px] sh-5 w-5 mx-5 cursor-pointer '>
+                        <TrashIcon color="red" onClick={()=>deleteHoExpense(id)} className="h-5 ml-[30px] cursor-pointer" />
+                        </div> */}
                         </div>
                       </td>
                 </tr>
@@ -549,7 +560,7 @@ const openingamount = async(value) => {
     <div className='w-full'>
     <div className="flex justify-center items-center">
      <div className="w-full pt-4  justify-center items-center">
-        <div className="rounded-t bg-black mb-0 py-6">
+        <div className="rounded-t bg-blue-600 mb-0 py-3">
       <div className="text-center">
         <h6 className="text-white text-xl font-bold">
           H.O Expense Report
@@ -565,7 +576,7 @@ const openingamount = async(value) => {
                 <div className=" py-4 mx-8  justify-center items-center bg-white">
                 <div className="px-4 flex flex-row">
             <div className=" flex mb-5">
-              <label className="uppercase text-blueGray-600 text-[20px] flex justify-start items-center font-bold mb-2 px-2" htmlfor="grid-password">
+              <label className="uppercase text-blueGray-600 text-[17px] flex justify-start items-center font-bold mb-2 px-2" htmlfor="grid-password">
                 Date
               </label>
               <input type="date" className="border-4 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
@@ -575,7 +586,7 @@ const openingamount = async(value) => {
             </div>
 
             <div className="ml-[50px] flex mb-5">
-              <label className="uppercase text-blueGray-600 text-[20px] flex justify-start items-center font-bold mb-2 px-2" htmlfor="grid-password">
+              <label className="uppercase text-blueGray-600 text-[17px] flex justify-start items-center font-bold mb-2 px-2" htmlfor="grid-password">
               Choose Plaza
               </label>
               <select
@@ -594,30 +605,50 @@ const openingamount = async(value) => {
           </select>
             </div>
 
-           
+            {/* <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-5">
+              <label className="block uppercase text-blueGray-600 text-[20px] font-bold mb-2 text-center"  htmlfor="grid-password">
+                Choose Plaza
+              </label>
+              <select
+            id="option1"
+            name="option"
+            value={pid}
+            onChange={(e) => openingamount(e.target.value)}
+            className="w-full border border-gray-300 rounded-md p-2"
+          >
+            <option value="" >Select Plaza</option>
+            {plaza.map((option) => (
+              <option  value={option.plaza_id}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+            </div>
+          </div> */}
 
           </div>
                     <div className="oveflow-scroll h-[500px]">
                     {/* overflow-y-auto */}
                     {/* report part start */}
-                        <div className="grid grid-cols-1">
+                        <div className="grid grid-cols-1 ">
                         {/* flex justify-center items-center */}
                             
-                            <div className="p-4 m-4 border-2 border-black w-full ">
-                            <div className="w-full left-0">
-                            <div className="flex justify-center items-center font-bold text-[25px] mb-[-15px]">Expense Report</div>
-                              <div className="w-full m-4 p-4">
+                            <div className="p-3 border-4 border-gray  w-full ">
+                            <div className="w-full left-0 bg-white p-2">
+                    
+                              <div className="w-full mt-2 justify-center  items-center ">
                               {/* border-2 border-red-400 */}
-                            <Card className="h-full w-full max-w-[1500px] overflow-scroll">
-                                                            <table className="w-full min-w-max table-auto text-left">
+                            <Card className="h-full w-full max-w-[1480px] ">
+                                                            <table className="w-full min-w-max table-auto text-center">
                                                                 <thead>
                                                                     <tr>
                                                                         {TABLE_HEAD.map((head) => (
-                                                                            <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 p-4 w-[50px]">
+                                                                            <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 opacity-70  justify-center sm:w-auto text-center  ">
                                                                                 <Typography
-                                                                                    variant="small"
-                                                                                    color="blue-gray"
-                                                                                    className="font-normal leading-none opacity-70 flex justify-center items-center w-[50px]"
+                                                                                    variant="normal"
+                                                                                    color="black"
+                                                                                    className="font-bold leading-none text-[15px] flex justify-center items-center p-2"
                                                                                 >
                                                                                     {head}
                                                                                 </Typography>
@@ -626,23 +657,23 @@ const openingamount = async(value) => {
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    {rowData.map((row, rowIndex) => (
+                                                                    {editrowData.map((row, rowIndex) => (
                                                                         <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'even:bg-blue-gray-50/50' : ''}>
-                                                                            <td className="p-4 border-2 w-[5px]">
-                                                                                <Typography variant="small" color="blue-gray" className="font-normal flex justify-center items-center w-[5px]">
+                                                                            <td className="p-4 border-2 w-[2px]">
+                                                                                <Typography variant="small" color="blue-gray" className="font-normal flex justify-center items-center ">
                                                                                     {rowIndex + 1}
                                                                                 </Typography>
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[80px]">
+                                                                            <td className="border-2 p-1 w-[340px]">
                                                                                 {/* <input type="number" placeholder="Expense" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" /> */}
                                                                                 <select
             id="option"
             name="option"
             onChange={(e) => handleEditRowInputChange(rowIndex,'id',e.target.value)}
             value={row.id}
-            className="w-[170px] border border-gray-300 rounded-md p-2 h-[37px] uppercase"
+            className="w-full border border-gray-300 justify-center rounded-md h-[35px] uppercase"
           >
-            <option value="" >Select Expense</option>
+            <option value="" className='font-normal text-[15px] w-[330px]  '>Select Expense</option>
             {options.map((option) => (
               <option  value={option.id}>
                 {option.name}
@@ -650,84 +681,68 @@ const openingamount = async(value) => {
             ))}
           </select>
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[10px]">
-                                                                                <input type="number" placeholder="Amount" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[90px]"
+                                                                            <td className="border-2 p-1 w-[120px]">
+                                                                                <input type="text" placeholder="Amount" className="border-2 items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[110px]"
                                                                                  onChange={(e) => handleEditRowInputChange(rowIndex,'amount',e.target.value)}
                                                                                  value={row.amount} />
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
-                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[70px]"
+                                                                            <td className="border-2  w-[5px]">
+                                                                                <input type="text" placeholder="Voucher No" className="border-2 justify-center items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
                                                                                 onChange={(e) => handleEditRowInputChange(rowIndex,'voucherno',e.target.value)}
                                                                                 value={row.voucherno} />
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
+                                                                            <td className="mx-auto pt-1 px-1 border-2 ">
                                                                                 {/* <input type="text" placeholder="Narration" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'narration',e.target.value)}
                                                                                 value={row.narration}
                                                                                  /> */}
                                                                                  <textarea
         placeholder="Narration" 
-        className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-[80px] h-auto"
+        className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full h-full "
         onChange={(e) => handleEditRowInputChange(rowIndex, 'narration', e.target.value)}
         
         value={row.narration}
         rows={1}
-        style={{ minHeight: '27px' }} 
+        style={{ minHeight: '35px', maxHeight: '500px'  }} 
     />
                                                                             </td>
-                                                                            {/* <td className="p-4 border-2 w-[30px]">
-                                                                               
-                                                                                <TrashIcon color="red" onClick={() =>handleDeleteRow(rowIndex)}
-                                                                                className="h-5 ml-[30px] cursor-pointer"/>
-                                                                            </td> */}
+                                                                            
                                                                         </tr>
                                                                     ))}
-                                                                    {/* <tr>
-                                                                        <td colSpan={5} className="p-4 border-2">
-                                                                            <Button color="black" onClick={handleEditAddRow}>Add Row</Button>
-                                                                            
-                                                                        </td>
-                                                                    </tr> */}
+                                                                   
                                                                 </tbody>
                                                             </table>
                                                         </Card>
+                                                        <div className="flex justify-start items-start">
+                          <div className="flex  w-full  m-5">
+        <div className="left-0 uppercase m-3 flex-initial font-bold pb-[5px] w-[180px]">Total Expense:</div>
+        <input type="number" placeholder="TOTAL EXPENSE" className="border-2 mt-2 w-[220px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        // value={(formData.opening_amt)+(formData.adv_from_ho)+(formData.total_cash_recievable)+(formData.balaji)+(formData.monthly_pass_amt)-(formData.cash_dep_bank)-(formData.cash_dep_arcpl)-(formData.cash_kpt)}
+        value={editformData.cash_kpt}
+        disabled  />
+      </div>
+      <div className="m-5 flex justify-end items-end">
+                          <div className="m-2 w-[100px]">
+                        <Button color="red" onClick={goback}>Go Back</Button>
+                        </div>
+                        <div className="m-2 ">
+                          <Button color="green" onClick={handlesubmit}>Submit</Button>
+                          </div>
+                        </div>
+     </div>
                                                         </div>
           </div>
                             </div>
                         </div>
                         {/* report part end */}
                         {/* calculation part start */}
-                        <div className="border-2 border-black  font-bold">
-                          <div className="flex justify-start items-start">
-                          
-      
-                          </div>
-                          <div className="flex justify-start items-start">
-                          <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Expense:</div>
-        <input type="number" placeholder="TOTAL EXPENSE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-        // value={(formData.opening_amt)+(formData.adv_from_ho)+(formData.total_cash_recievable)+(formData.balaji)+(formData.monthly_pass_amt)-(formData.cash_dep_bank)-(formData.cash_dep_arcpl)-(formData.cash_kpt)}
-        value={editformData.cash_kpt}
-        disabled  />
-      </div>
-      
-
-      
-                          </div>
-                          
-                        </div>
+                        
+                       
                         {/* calculation part ends  */}
                         {/* <div className="m-5 flex justify-start items-start">
                           <Button color="red" onClick={handlesubmit}>Go Back</Button>
                         </div> */}
-                        <div className="m-5 flex justify-end items-end">
-                          <div className="m-2">
-                        <Button color="red" onClick={goback}>Go Back</Button>
-                        </div>
-                        <div className="m-2">
-                          <Button color="green" onClick={handlesubmit}>Submit</Button>
-                          </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

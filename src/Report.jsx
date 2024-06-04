@@ -475,15 +475,15 @@ const total_sum = {
 
   return (
     <>
-    <div className='bg-gray-100 h-[100%]'>
+    <div className='bg-gray-100 w-full  h-[100%]'>
     {/* <NavBar/> */}
     {/* <div className='flex'> */}
     {/* <SideNav/> */}
-    <div className='m-5'>
+    <div className='m-5  '>
     <div className='my-5'>
         <form onSubmit={handleSubmit}>
             {/* <div className='flex'> */}
-            <div className='flex flex-row '>
+            <div className='flex flex-row flex-wrap  '>
         <div className="text-[20px] mt-[5px]"> From </div> 
             <div className=" w-[200px] px-5">        
           <div  className="relative max-w-sm">
@@ -532,10 +532,10 @@ const total_sum = {
           
           </div>
           {/* <Button className='mx-5' color='blue'>Get Result</Button> */}
-          <Button className='mx-5' color='blue' onClick={handleGetResult}>
+          <Button className='mx-5 text-black bg-blue-600'  onClick={handleGetResult}>
               Get Result
           </Button>
-          <Button color='green' onClick={GenerateReport}>Generate Report</Button>
+          <Button className='text-black  bg-amber-600'  onClick={GenerateReport}>Generate Report</Button>
           <ArrowPathIcon
                 className=' mt-[2px] ml-2 h-10 cursor-pointer'
                 onClick={resetform}
@@ -550,9 +550,9 @@ const total_sum = {
         { showTable ? (
           <div className='w-full'>
             {/* w-[1030px] */}
-      <div className=" w-[100%] h-full ">
+      <div className=" flex-grow  flex-wrap  overflow-scroll h-full ">
         {/* <Card className="h-full w-full overflow-scroll"> */}
-          <table className="w-full min-w-max  text-right bg-white">
+          <table className=" min-w-max text-right bg-white">
             <thead>
               { edit ? (
               <tr className='sticky top-0 z-[9]'>
