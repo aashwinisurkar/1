@@ -2,7 +2,7 @@ import { chartsConfig } from "@/configs";
 
 const websiteViewsChart = {
   type: "bar",
-  height: 220,
+  // height: 220,
   series: [
     {
       name: "Views",
@@ -27,7 +27,7 @@ const websiteViewsChart = {
 
 const dailySalesChart = {
   type: "line",
-  height: 220,
+  height: 260,
   series: [
     {
       name: "Sales",
@@ -62,7 +62,7 @@ const dailySalesChart = {
 
 const completedTaskChart = {
   type: "line",
-  height: 220,
+  // height: 220,
   series: [
     {
       name: "Sales",

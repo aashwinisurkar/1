@@ -719,7 +719,7 @@ if(formData.plaza_code===null){
                 {/* <Button className='mx-5' color='blue' onClick={handleGetResult}>
                   Get Day Wise Result
                 </Button> */}
-                <Button className='mx-5' color='blue' onClick={handlefromremi}>
+                <Button className='mx-5 bg-blue-500 '  onClick={handlefromremi}>
                   Get Datewise Result
                 </Button>
                 <Button color='green' onClick={GenerateReport}>Generate Report</Button>

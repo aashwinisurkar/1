@@ -6,7 +6,7 @@ import {
   TrashIcon
 } from "@heroicons/react/24/solid"; 
 
-const TABLE_HEAD = ['Sr.no','Expense','Amount','Voucher No','Narration',''];
+const TABLE_HEAD = ['Sr.no','Expense','Amount','Voucher No','Narration','Action'];
 const TABLE_HEAD1 = ["Sr no","Date", "Plaza Name","Expense no","Amount","Narration"];
 // let index = 0;
 
@@ -382,33 +382,32 @@ fetch(api+'get_plaza')
     <div className='w-full'>
     <div className="flex justify-center items-center">
      <div className="w-full pt-4  justify-center items-center">
-        <div className="rounded-t bg-black mb-0 py-6">
+        <div className="rounded-t bg-blue-700  mb-0 py-4">
       <div className="text-center">
-        <h6 className="text-white text-xl font-bold">
+        <h5 className="text-white text-xl font-bold">
           H.O Expense Report
           {/* {pname.toUpperCase()} */}
-        </h6>
+        </h5>
       </div>
     </div>
     </div>
     </div>
     <div className="w-full h-full bg-white">
     <form className=" h-full w-full">
-            <div className=" overflow-scroll">
-                <div className=" py-4 mx-8  justify-center items-center bg-white">
-                <div className="px-4 flex flex-row">
-            <div className=" flex mb-5">
-              <label className="uppercase text-blueGray-600 text-[20px] flex justify-start items-center font-bold mb-2 px-2" htmlfor="grid-password">
+            <div className="justify-center items-center  ">
+            <div className="px-2 flex   flex-col lg:flex-row  lg:items-center sm:items-center   justify-center ">
+            <div className="ml-[5px] mt-5 flex mb-3">
+              <label className="uppercase text-blueGray-600 text-[17px] flex justify-center items-center font-bold mb-2 px-2" htmlfor="grid-password">
                 Date
               </label>
-              <input type="date" className="border-4 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
+              <input type="date" className="border-2  px-3  py-2  placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
               onChange={(e) =>{handleDateChange("test", e.target.value)}}
               defaultValue={datetd}
               />
             </div>
 
-            <div className="ml-[50px] flex mb-5">
-              <label className="uppercase text-blueGray-600 text-[20px] flex justify-start items-center font-bold mb-2 px-2" htmlfor="grid-password">
+            <div className="ml-[40px] flex mt-5 mb-3">
+              <label className="uppercase text-blueGray-600 text-[15px] flex justify-start items-center font-bold mb-2 me-2 " htmlfor="grid-password">
               Choose Plaza
               </label>
               <select
@@ -416,7 +415,7 @@ fetch(api+'get_plaza')
             name="option"
             value={pid}
             onChange={(e) => openingamount(e.target.value)}
-            className="w-[200px] border border-gray-300 rounded-md p-2"
+            className="w-[180px] border-2 py-2 border-gray-400 rounded-md px-2 "
           >
             <option value="" >Select Plaza</option>
             {plaza.map((option) => (
@@ -427,50 +426,31 @@ fetch(api+'get_plaza')
           </select>
             </div>
 
-            {/* <div className="w-full lg:w-6/12 px-4">
-            <div className="relative w-full mb-5">
-              <label className="block uppercase text-blueGray-600 text-[20px] font-bold mb-2 text-center"  htmlfor="grid-password">
-                Choose Plaza
-              </label>
-              <select
-            id="option1"
-            name="option"
-            value={pid}
-            onChange={(e) => openingamount(e.target.value)}
-            className="w-full border border-gray-300 rounded-md p-2"
-          >
-            <option value="" >Select Plaza</option>
-            {plaza.map((option) => (
-              <option  value={option.plaza_id}>
-                {option.name}
-              </option>
-            ))}
-          </select>
-            </div>
-          </div> */}
+           
 
           </div>
-                    <div className="oveflow-scroll h-[500px]">
+                    <div className="  flex-grow-1 ">
                     {/* overflow-y-auto */}
                     {/* report part start */}
-                        <div className="grid grid-cols-1">
+                        {/* <div className="flex flex-col lg:flex-row"> */}
                         {/* flex justify-center items-center */}
-                            
-                            <div className="p-4 m-4 border-2 border-black w-full ">
-                            <div className="w-full left-0">
-                            <div className="flex justify-center items-center font-bold text-[25px] mb-[-15px]">Expense Report</div>
-                              <div className="w-full m-4 p-4">
+                        <div className=" flex flex-col lg:flex-row ">
+
+                            <div className=" mx-4 py-4  flex-grow flex-wrap p-2 my-2 border-2 border-gray-200 rounded-lg  md:w-[1000px] ">
+                           
+                            <div className=" flex-grow flex-wrap   mx-2">
+                              <div className="sm:flex-row  flex-col flex border rounded-lg overflow-scroll my-1 mx-3 p-4">
                               {/* border-2 border-red-400 */}
-                            <Card className="h-full w-full max-w-[1500px] overflow-scroll">
-                                                            <table className="w-full min-w-max table-auto text-left">
+                              <Card className="h-full flex-grow flex-wrap ">
+                                                            <table className=" flex-wrap table-auto text-left ">
                                                                 <thead>
                                                                     <tr>
                                                                         {TABLE_HEAD.map((head) => (
-                                                                            <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 p-4 w-[50px]">
+                                                                            <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 opacity-70  justify-center sm:w-auto text-center  px-3  ">
                                                                                 <Typography
-                                                                                    variant="small"
+                                                                                    variant="normal"
                                                                                     color="blue-gray"
-                                                                                    className="font-normal leading-none opacity-70 flex justify-center items-center w-[50px]"
+                                                                                    className="font-bold leading-none text-[15px] flex justify-center items-center p-2"
                                                                                 >
                                                                                     {head}
                                                                                 </Typography>
@@ -481,21 +461,21 @@ fetch(api+'get_plaza')
                                                                 <tbody>
                                                                     {rowData.map((row, rowIndex) => (
                                                                         <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'even:bg-blue-gray-50/50' : ''}>
-                                                                            <td className="p-4 border-2 w-[5px]">
-                                                                                <Typography variant="small" color="blue-gray" className="font-normal flex justify-center items-center w-[5px]">
+                                                                            <td className="p-1  border-2 w-[1px]">
+                                                                                <Typography variant="small" color="blue-gray" className="font-normal flex justify-center items-center ">
                                                                                     {rowIndex + 1}
                                                                                 </Typography>
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[80px]">
+                                                                            <td className="border-2 p-1 w-[200px] ">
                                                                                 {/* <input type="number" placeholder="Expense" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" /> */}
                                                                                 <select
             id="option"
             name="option"
             onChange={(e) => handleRowInputChange(rowIndex,'id',e.target.value)}
             value={row.id}
-            className="w-[170px] border border-gray-300 rounded-md p-2 h-[37px] uppercase"
+            className="w-[160px] border border-gray-300 justify-center rounded-md h-[35px] uppercase"
           >
-            <option value="" >Select Expense</option>
+            <option value="" className='font-normal text-[15px] w-[330px]  '>Select Expense</option>
             {options.map((option) => (
               <option  value={option.id}>
                 {option.name}
@@ -503,28 +483,29 @@ fetch(api+'get_plaza')
             ))}
           </select>
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[10px]">
-                                                                                <input type="number" placeholder="Amount" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[90px]"
+                                                                            <td className="border-2 p-1 w-[130px]">
+                                                                                <input type="text" placeholder="Amount" className="border-2 items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[110px]"
                                                                                  onChange={(e) => handleRowInputChange(rowIndex,'amount',e.target.value)}
                                                                                  value={row.amount} />
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
-                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[70px]"
+                                                                            <td className="border-2  w-[70px]">
+                                                                                <input type="text" placeholder="Voucher No" className="border-2 justify-center items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'voucherno',e.target.value)}
                                                                                 value={row.voucherno} />
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
+                                                                            <td className="mx-auto pt-1 px-1 border-2 ">
                                                                                 {/* <input type="text" placeholder="Narration" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'narration',e.target.value)}
                                                                                 value={row.narration}
                                                                                  /> */}
                                                                                  <textarea
         placeholder="Narration" 
-        className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-[80px] h-auto"
+        className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full h-full "
         onChange={(e) => handleRowInputChange(rowIndex, 'narration', e.target.value)}
+        
         value={row.narration}
         rows={1}
-        style={{ minHeight: '27px' }} 
+        style={{ minHeight: '40px', maxHeight: '400px'  }} 
     />
                                                                             </td>
                                                                             <td className="p-4 border-2 w-[30px]">
@@ -532,28 +513,52 @@ fetch(api+'get_plaza')
                                                                                 <TrashIcon color="red" onClick={() =>handleDeleteRow(rowIndex)}
                                                                                 className="h-5 ml-[30px] cursor-pointer"/>
                                                                             </td>
+                                                                            
                                                                         </tr>
+                                                                        
                                                                     ))}
-                                                                    <tr>
+                                                                     <tr>
                                                                         <td colSpan={5} className="p-4 border-2">
-                                                                            <Button color="black" onClick={handleAddRow}>Add Row</Button>
+                                                                            <Button  className="bg-blue-600" onClick={handleAddRow}>Add Row</Button>
                                                                         </td>
                                                                     </tr>
+                                                                   
                                                                 </tbody>
                                                             </table>
                                                         </Card>
                                                         </div>
-          </div>
-                            </div>
-                        </div>
-                        {/* report part end */}
-                        {/* calculation part start */}
-                        <div className="border-2 border-black  font-bold">
-                          <div className="flex justify-start items-start">
-                          
+                                                        <div className="flex justify-start  grid grid-col-1 ml-10 items-start">
+                          <div className="flex  flex-wrap justify-center items-center w-full  p-2">
+        <div className="left-0 ml-10 uppercase m-3 flex-initial  pb-[5px] w-[250px]">Total Expense:</div>
+        <input type="number" placeholder="TOTAL EXPENSE" className="  mr-10 border-2 w-[250px] placeholder-blueGray-300 text-black font-bold  bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        // value={(formData.opening_amt)+(formData.adv_from_ho)+(formData.total_cash_recievable)+(formData.balaji)+(formData.monthly_pass_amt)-(formData.cash_dep_bank)-(formData.cash_dep_arcpl)-(formData.cash_kpt)}
+        value={formData.cash_kpt}
+        disabled  />
+      </div>
+                                                        </div>
+                                                        {/* <div className="flex justify-start items-start">
+                          <div className="flex justify-center items-center w-full  p-2">
+        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Expense:</div>
+        <input type="number" placeholder="TOTAL EXPENSE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        // value={(formData.opening_amt)+(formData.adv_from_ho)+(formData.total_cash_recievable)+(formData.balaji)+(formData.monthly_pass_amt)-(formData.cash_dep_bank)-(formData.cash_dep_arcpl)-(formData.cash_kpt)}
+        value={formData.cash_kpt}
+        disabled  />
+      </div> */}
+      
+
       
                           </div>
-                          <div className="flex justify-start items-start">
+          </div>
+                            </div>
+                        {/* </div> */}
+                        {/* report part end */}
+                        {/* calculation part start */}
+                        {/* <div className="border-2 border-black  font-bold"> */}
+                          {/* <div className="flex justify-start items-start">
+                          
+      
+                          </div> */}
+                          {/* <div className="flex justify-start items-start">
                           <div className="flex justify-center items-center w-full  p-2">
         <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Expense:</div>
         <input type="number" placeholder="TOTAL EXPENSE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
@@ -564,9 +569,9 @@ fetch(api+'get_plaza')
       
 
       
-                          </div>
+                          </div> */}
                           
-                        </div>
+                        {/* </div> */}
                         {/* calculation part ends  */}
                         {/* <div className="m-5 flex justify-start items-start">
                           <Button color="red" onClick={handlesubmit}>Go Back</Button>
@@ -580,7 +585,7 @@ fetch(api+'get_plaza')
                           </div>
                         </div>
                     </div>
-                </div>
+               
             </div>
         {/* </div> */}
     </form>

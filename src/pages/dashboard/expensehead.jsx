@@ -55,6 +55,7 @@ export function ExpenseHead() {
   const [open,setopen] = useState(false);
   const [ searchData , setSearchData] = useState();
   const [showAddDialog, setShowAddDialog] = useState(false);
+  // const [isSearchActive, setSearchActive] = useState(false);
     
 
   const openPlazaModal = () => {
@@ -156,6 +157,9 @@ const plazacurrentItems = filteredData.slice(plazaIndexOfFirstItem, plazaIndexOf
   const handleSearch = (e) => {
     setSearchData(e.target.value);
   };
+  // const handleSearchIconClick = () => {
+  //   setSearchActive(!isSearchActive);
+  // };
 
   const handleClear = () => {
     setSearchData("");
@@ -306,9 +310,10 @@ const plazacurrentItems = filteredData.slice(plazaIndexOfFirstItem, plazaIndexOf
             className="border text-center border-gray-300 text-gray-800 rounded-lg px-4 py-2 "
             onChange={handleSearch}
           /> 
-            <Button className=" absolute bg-blue-800 text-white ml-0  px-2 py-[8px]  flex items-center">
-    <MagnifyingGlassIcon className="h-6 w-6" />
-  </Button>
+            <div className=" absolute font-bold   text-black ml-0  px-2 py-[8px]  flex items-center">
+              
+    <MagnifyingGlassIcon className="h-7 w-7 " />
+  </div>
           
          
        </div>
@@ -351,7 +356,7 @@ const plazacurrentItems = filteredData.slice(plazaIndexOfFirstItem, plazaIndexOf
                   }`;
 
                   return (
-                    <tr key={name}>
+                    <tr key={name} className="even:bg-blue-gray-100 ">
                       <td className={className}>
                         <div className="flex items-center gap-4">
                           <div>

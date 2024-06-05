@@ -85,7 +85,7 @@ export const routes = [
           },
           {
             icon: <CurrencyRupeeIcon {...icon} />,
-            name: "Remittance",
+            name: "Collection",
             path: "/report/remittance",
             element: <Remitance />,
           },

@@ -391,24 +391,7 @@ export function Home() {
         console.error('Error fetching options:', error);
       },[]);
 
-      // let i4 = 0;
-      // if(currentItems3.length>0){
-      //   // console.log(currentItems3.length);
-      //   if(i4<2){
-      //   const table34 = useMaterialReactTable({
-      //     columns,
-      //     currentItems3, 
-      //   });
-      //   setTable341(table34);
-      //   i4++;
-      // }
-       
-      // }
-      // if(i4<2){
-      //   testting();
-      //   i4++;
-      // }
-
+     
   },[cstat]);
 
   const entriesData = monthlysale.map((item) => parseInt(item.amount));
@@ -458,14 +441,7 @@ const allMonths = uniqueMonths.map(month => {
     setOpen3((cur)=>!cur);
   };
 
-  // const filteredItems = currentItems3.filter(item => {
-  //   return (
-  //     item.name.toLowerCase().includes(filterValues.name.toLowerCase()) &&
-  //     item.addr.toLowerCase().includes(filterValues.addr.toLowerCase()) &&
-  //     item.valid_from.toLowerCase().includes(filterValues.valid_from.toLowerCase()) &&
-  //     item.valid_to.toLowerCase().includes(filterValues.valid_to.toLowerCase())
-  //   );
-  // });
+ 
 
   const sortedItems = () => {
     if (sortBy) {
@@ -483,53 +459,39 @@ const allMonths = uniqueMonths.map(month => {
 
   const MonthlySale = {
     type: "bar",
-    height: 380,
-    series: [
-      {
-        name: "Collection",
-        data: entriesData,
-      },
-    ],
-    options: {
-      ...chartsConfig,
-      colors: "#388e3c",
-      plotOptions: {
-        bar: {
-          columnWidth: "26%",
-          borderRadius: 10,
-        },
-      },
-      xaxis: {
-        ...chartsConfig.xaxis,
-        categories: allMonths,
+  height: 380,
+  series: [
+    {
+      name: "Collection",
+      // type: "column",
+      data: entriesData,
+    },
+    {
+      name: "Expense",
+      data: expentry,
+    },
+  ],
+  options: {
+    ...chartsConfig,
+    colors: ["#388e3c", "#FF0000"],
+    plotOptions: {
+      bar: {
+        columnWidth: "26%",
+        borderRadius: 10,
       },
     },
-  };
-
-  const expenseenty = {
-    type: "line",
-    height: 380,
-    series: [
-      {
-        name: "Expense",
-        data: expentry,
-      },
-    ],
-    options: {
-      ...chartsConfig,
-      colors: ["#0288d1"],
-      stroke: {
-        lineCap: "round",
-      },
-      markers: {
-        size: 5,
-      },
-      xaxis: {
-        ...chartsConfig.xaxis,
-        categories: allMonths
-      },
+    stroke: {
+      lineCap: "round",
     },
-  };
+    markers: {
+      size: 5,
+    },
+    xaxis: {
+      ...chartsConfig.xaxis,
+      categories: allMonths,
+    },
+  },
+};
 
   const entrydetail = {
     type: "line",
@@ -555,12 +517,7 @@ const allMonths = uniqueMonths.map(month => {
       },
     },
   };
-//   if(currentItems3){
-//   const table34 = useMaterialReactTable({
-//     fcolumns,
-//     currentItems3, 
-//   });
-// }
+
 
     
   return (
@@ -569,16 +526,7 @@ const allMonths = uniqueMonths.map(month => {
     <div className="mt-12">
       <div className="mb-12 grid justify-center gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
         
-      {/* <button onClick={table1}>
-          <StatisticsCard
-                key="Total Collection"
-                title="Total Collection"
-                icon={React.createElement(BanknotesIcon, {
-                className: "w-6 h-6 text-white",
-                })}
-                value = {formatnum(totalcoll)}
-            />
-      </button> */}
+      
        
        
             <button  onClick={table1} className="w-[290px]">
@@ -920,37 +868,21 @@ const allMonths = uniqueMonths.map(month => {
       </Collapse>
       </div>
       
-      <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-3">
-        {/* {statisticsChartsData.map((props) => (
-          <StatisticsChart
-            key={props.title}
-            {...props}
-            footer={
-              <Typography
-                variant="small"
-                className="flex items-center font-normal text-blue-gray-600"
-              >
-                <ClockIcon strokeWidth={2} className="h-4 w-4 text-blue-gray-400" />
-                &nbsp;{props.footer}
-              </Typography>
-            }
-          />
-        ))} */}
-
+      <div className="mb-6  flex-row grid grid-cols-2 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-2">
+      
+      
+        {/* <Card> */}
         <StatisticsChart
-        key = 'Website View'
+        key = 'ChartData'
         color="white" 
-        description = "MonthWise Total Collection"
-        title = "Monthly Collection"
+        description="MonthWise Expenses"
+        title = "Monthly Collection and Expenses"
         chart ={MonthlySale} 
         />
-        <StatisticsChart
-        key = 'Daily Sales'
-        color="white" 
-        description = "MonthWise Expenses "
-        title = "Monthly Expenses"
-        chart ={expenseenty} 
-        />
+       
+        
+
+        
         <StatisticsChart
         key = 'Daily Sales1'
         color="white" 
@@ -958,8 +890,10 @@ const allMonths = uniqueMonths.map(month => {
         title = "Monthly Entries"
         chart ={entrydetail} 
         />
+        
+        </div>
       </div>
-    </div>
+    
     : <div></div>}
     </>
   );
@@ -968,89 +902,4 @@ const allMonths = uniqueMonths.map(month => {
 export default Home;
 
 
-{/* <div className="mt-[-48px] mb-12 w-full grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-2 ">
-      <Collapse open={open}>
-        <Card className="my-4 mx-auto w-[85%]">
-        <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
-            <table className="w-full min-w-[640px] table-auto">
-              <thead>
-                <tr>
-                  <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400">
-                      Name
-                    </Typography>
-                  </th>
-                  <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                    <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400">
-                      Total Collection
-                    </Typography>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentItems.map(({ name, total_collection }, key) => {
-                  const className = `py-3 px-5 ${
-                    key === currentItems.length - 1
-                      ? ""
-                      : "border-b border-blue-gray-50"
-                  }`;
 
-                  return (
-                    <tr key={name}>
-                      <td className={className}>
-                        <div className="flex items-center gap-4">
-                          <div>
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-semibold"
-                            >
-                              {name}
-                            </Typography>
-                          </div>
-                        </div>
-                      </td>
-                      <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {total_collection}
-                        </Typography>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </CardBody>
-        </Card>
-      </Collapse>
-      <Collapse open={open1}>
-        <Card className="my-4 mx-auto w-8/12">
-          <CardBody>
-            <Typography>
-              Use our Tailwind CSS collapse for your website. You can use if for
-              accordion, collapsible items and much more.
-            </Typography>
-          </CardBody>
-        </Card>
-      </Collapse>
-      <Collapse open={open2}>
-        <Card className="my-4 mx-auto w-8/12">
-          <CardBody>
-            <Typography>
-              Use our Tailwind CSS collapse for your website. You can use if for
-              accordion, collapsible items and much more.
-            </Typography>
-          </CardBody>
-        </Card>
-      </Collapse>
-      <Collapse open={open3}>
-        <Card className="my-4 mx-auto w-8/12">
-          <CardBody>
-            <Typography>
-              Use our Tailwind CSS collapse for your website. You can use if for
-              accordion, collapsible items and much more.
-            </Typography>
-          </CardBody>
-        </Card>
-      </Collapse>
-      </div> */}

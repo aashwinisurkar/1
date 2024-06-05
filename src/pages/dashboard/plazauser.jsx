@@ -297,16 +297,22 @@ const handleSearch = (e) => {
         </Typography>
         <div className="  justify-start flex">
         <div className='ml-30 relative flex items-center'>
-        <Button className=" absolute bg-blue-800 text-white border  ml-0  px-2 py-[8px]  flex items-center">
+        {/* <Button className=" absolute bg-blue-800 text-white border  ml-0  px-2 py-[8px]  flex items-center">
     <MagnifyingGlassIcon className="h-6 w-6" />
-  </Button>
+  </Button> */}
        <input 
             type="search" 
             value={searchPlaza}
             placeholder="Search Plaza" 
             className="border border-gray-300 text-center  text-gray-800 rounded-lg  px-4 py-2 "
             onChange={handleSearch}
+
           /> 
+           <div className=" absolute font-bold   text-black ml-0  px-2 py-[8px]  flex items-center">
+              
+              <MagnifyingGlassIcon className="h-7 w-7 " />
+            </div>
+                    
         
        </div>
        <div className='mr-10'>
@@ -323,7 +329,7 @@ const handleSearch = (e) => {
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
             <table className="w-full min-w-[640px] table-auto">
               <thead>
-                <tr>
+                <tr >
                   <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
                     <Typography variant="small" className="text-[11px] font-bold uppercase text-blue-gray-400">
                       Plaza Name
@@ -366,7 +372,7 @@ const handleSearch = (e) => {
                   }`;
 
                   return (
-                    <tr key={name}>
+                    <tr key={name} className="even:bg-blue-gray-100 ">
                       <td className={className}>
                         <div className="flex items-center gap-4">
                           <div>

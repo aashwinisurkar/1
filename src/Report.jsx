@@ -532,10 +532,10 @@ const total_sum = {
           
           </div>
           {/* <Button className='mx-5' color='blue'>Get Result</Button> */}
-          <Button className='mx-5 text-black bg-blue-600'  onClick={handleGetResult}>
+          <Button className='mx-5  bg-blue-500'  onClick={handleGetResult}>
               Get Result
           </Button>
-          <Button className='text-black  bg-amber-600'  onClick={GenerateReport}>Generate Report</Button>
+          <Button color='green'  onClick={GenerateReport}>Generate Report</Button>
           <ArrowPathIcon
                 className=' mt-[2px] ml-2 h-10 cursor-pointer'
                 onClick={resetform}

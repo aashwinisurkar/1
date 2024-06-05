@@ -15,10 +15,10 @@ export function StatisticsChart({ color, chart, title, description, footer }) {
         <Chart {...chart} />
       </CardHeader>
       <CardBody className="px-6 pt-0">
-        <Typography variant="h6" color="blue-gray">
+        <Typography variant="h6" color="indigo">
           {title}
         </Typography>
-        <Typography variant="small" className="font-normal text-blue-gray-600">
+        <Typography variant="normal" className="font-normal text-blue-gray-900">
           {description}
         </Typography>
       </CardBody>
@@ -32,7 +32,7 @@ export function StatisticsChart({ color, chart, title, description, footer }) {
 }
 
 StatisticsChart.defaultProps = {
-  color: "blue",
+  color: "",
   footer: null,
 };
 

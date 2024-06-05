@@ -585,7 +585,7 @@ export default function Conreport() {
           <Button className='mx-5 text-black' color='blue' onClick={handleGetResult}>
               Get Result
           </Button>
-          <Button  className='bg-amber-600 text-black'  onClick={GenerateReport}>Generate Report</Button>
+          <Button  color='green'  onClick={GenerateReport}>Generate Report</Button>
           <ArrowPathIcon
                 className=' mt-[2px] ml-2 h-10 cursor-pointer'
                 onClick={resetform}

@@ -592,10 +592,10 @@ export default function Daily_Rem_Rep() {
           
           </div> */}
           {/* <Button className='mx-5' color='blue'>Get Result</Button> */}
-          <Button className='mx-5 text-black' color='blue' onClick={handleGetResult}>
+          <Button className='mx-5  bg-blue-500'  onClick={handleGetResult}>
               Get Result
           </Button>
-          <Button className='bg-amber-500 text-black' onClick={GenerateReport}>Generate Report</Button>
+          <Button  color='green' onClick={GenerateReport}>Generate Report</Button>
           <ArrowPathIcon
                 className=' mt-[2px] ml-2 h-10 cursor-pointer'
                 onClick={resetform}

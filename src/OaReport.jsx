@@ -355,7 +355,7 @@ export default function OaReport() {
                 {/* <Button className='mx-5' color='blue' onClick={handleGetResult}>
                   Get Day Wise Result
                 </Button> */}
-                <Button className='mx-5' color='blue' onClick={handlefromremi}>
+                <Button className='mx-5 bg-blue-500'  onClick={handlefromremi}>
                   Get Result
                 </Button>
                 {/* <Button color='green' onClick={GenerateReport}>Generate Report</Button> */}

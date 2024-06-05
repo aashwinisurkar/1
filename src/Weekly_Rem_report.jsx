@@ -592,7 +592,7 @@ export default function Weekly_Rem_Report() {
           
           </div> */}
           {/* <Button className='mx-5' color='blue'>Get Result</Button> */}
-          <Button className='mx-5' color='blue' onClick={handleGetResult}>
+          <Button className='mx-5 bg-blue-600 text-black'  onClick={handleGetResult}>
               Get Result
           </Button>
           <Button color='green' onClick={GenerateReport}>Generate Report</Button>

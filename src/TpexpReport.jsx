@@ -159,7 +159,7 @@ export default function TpexpReport() {
           </select>
           
           </div>
-          <Button className='mx-5' color='blue' onClick={handleGetResult}>
+          <Button className='mx-5 bg-blue-500 '  onClick={handleGetResult}>
               Get Result
           </Button>
           <ArrowPathIcon

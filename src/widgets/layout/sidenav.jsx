@@ -58,8 +58,9 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
   }, []);
 
   return (
-    <aside className={`${sidenavTypes[sidenavType]} ${openSidenav ? "translate-x-0" : "-translate-x-80"} fixed inset-0 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 border border-blue-gray-100 z-[10]`}>
-      <div className="relative h-full overflow-y-auto">
+    <aside className={`${sidenavTypes[sidenavType]} ${openSidenav ? "translate-x-0" : "-translate-x-80"} fixed inset-0 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 border border-blue-gray-100 z-[10]`}
+    style={{ overflowY: 'scroll', scrollbarWidth: 'none', '-ms-overflow-style': 'none' }}>
+      <div className="relative h-full ">
       <div className={`relative `}>
         <Link to="/" className="py-6 px-8 text-center">
           <Typography
@@ -99,7 +100,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                         variant="text"
                         color={sidenavType === "dark" ? "white" : "blue-gray"}
                         fullWidth
-                        className="flex items-center gap-4 px-4 capitalize"
+                        className="flex items-center gap-4 px-2 capitalize"
                         onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
                       >
                         {icon}
@@ -116,7 +117,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                                   <Button
                                     variant={isActive ? "gradient" : "text"}
                                     color={isActive ? sidenavColor : sidenavType === "dark" ? "white" : "blue-gray"}
-                                    className="flex items-center gap-4 px-4 capitalize"
+                                    className="flex items-center gap-4 pl-2 pr-0 capitalize"
                                     fullWidth
                                   >
                                     {subIcon}
@@ -137,7 +138,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                         <Button
                           variant={isActive ? "gradient" : "text"}
                           color={isActive ? sidenavColor : sidenavType === "dark" ? "white" : "blue-gray"}
-                          className="flex items-center gap-4 px-4 capitalize"
+                          className="flex items-center gap-4 px-2 capitalize"
                           fullWidth
                         >
                           {icon}
@@ -168,7 +169,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                         variant="text"
                         color={sidenavType === "dark" ? "white" : "blue-gray"}
                         fullWidth
-                        className="flex items-center gap-4 px-4 capitalize"
+                        className="flex items-center gap-4 px-2 capitalize"
                         onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
                       >
                         {icon}
@@ -185,7 +186,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                                   <Button
                                     variant={isActive ? "gradient" : "text"}
                                     color={isActive ? sidenavColor : sidenavType === "dark" ? "white" : "blue-gray"}
-                                    className="flex items-center gap-4 px-4 capitalize"
+                                    className="flex items-center gap-4 px-2 capitalize"
                                     fullWidth
                                   >
                                     {subIcon}
@@ -206,7 +207,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                         <Button
                           variant={isActive ? "gradient" : "text"}
                           color={isActive ? sidenavColor : sidenavType === "dark" ? "white" : "blue-gray"}
-                          className="flex items-center gap-4 px-4 capitalize"
+                          className="flex items-center gap-4 px-2 capitalize"
                           fullWidth
                         >
                           {icon}
@@ -238,7 +239,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                         variant="text"
                         color={sidenavType === "dark" ? "white" : "blue-gray"}
                         fullWidth
-                        className="flex items-center gap-4 px-4 capitalize"
+                        className="flex items-center gap-4 px-2 capitalize"
                         onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
                       >
                         {icon}
@@ -255,7 +256,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                                   <Button
                                     variant={isActive ? "gradient" : "text"}
                                     color={isActive ? sidenavColor : sidenavType === "dark" ? "white" : "blue-gray"}
-                                    className="flex items-center gap-4 px-4 capitalize"
+                                    className="flex items-center gap-4 px-2 capitalize"
                                     fullWidth
                                   >
                                     {subIcon}
@@ -276,7 +277,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
                         <Button
                           variant={isActive ? "gradient" : "text"}
                           color={isActive ? sidenavColor : sidenavType === "dark" ? "white" : "blue-gray"}
-                          className="flex items-center gap-4 px-4 capitalize"
+                          className="flex items-center gap-4 px-2 capitalize"
                           fullWidth
                         >
                           {icon}

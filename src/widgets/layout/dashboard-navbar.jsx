@@ -131,7 +131,7 @@ export function DashboardNavbar() {
               color="blue-gray"
               className="hidden items-center gap-1 px-4 xl:flex normal-case"
             >
-              <UserCircleIcon className="h-6 w-6 text-blue-gray-500" />
+              <UserCircleIcon className="h-6 w-6 text-blue-gray-800" />
               {name}
             </Button>
             <IconButton
@@ -139,7 +139,7 @@ export function DashboardNavbar() {
               color="blue-gray"
               className="grid xl:hidden"
             >
-              <UserCircleIcon className="h-6 w-6 text-blue-gray-500" />
+              <UserCircleIcon className="h-6 w-6 text-blue-gray-800" />
             </IconButton  >
           </Link>
           <Link to="#" onClick={logout}>
@@ -148,7 +148,7 @@ export function DashboardNavbar() {
               color="blue-gray"
               className="hidden items-center  gap-1 px-4 xl:flex normal-case"
             >
-              <ArrowLeftOnRectangleIcon className="h-6 w-6  font-bold  text-blue-gray-500" />
+              <ArrowLeftOnRectangleIcon className="h-6 w-6  font-bold  text-blue-gray-800" />
               LogOut
             </Button>
             <IconButton
@@ -156,19 +156,26 @@ export function DashboardNavbar() {
               color="blue-gray"
               className="grid xl:hidden"
             >
-              <ArrowLeftOnRectangleIcon className="h-5 w-5 text-blue-gray-500" />
+              <ArrowLeftOnRectangleIcon className="h-6 w-6 text-blue-gray-800" />
             </IconButton>
           </Link>
           <Menu>
-          <MenuHandler>
+
+            {/* search button */}
+          {/* <MenuHandler>
           <IconButton
             variant="text"
             color="blue-gray"
             // onClick={() => setOpenConfigurator(dispatch, true)}
           >
-            <Cog6ToothIcon className="h-6 w-6 text-blue-gray-500" />
+            <Cog6ToothIcon className="h-6 w-6 text-blue-gray-700" />
           </IconButton>
-          </MenuHandler>
+          </MenuHandler> */}
+
+
+
+
+
           {/* <MenuList className="w-max border-0">
               <MenuItem className="flex items-center gap-3">
                 <button onClick={handlechange} className="flex px-2">
@@ -184,7 +191,7 @@ export function DashboardNavbar() {
             // xl: hidden
             onClick={() => setOpenSidenav(dispatch, !openSidenav)}
           >
-            <Bars3Icon strokeWidth={3} className="h-6 w-6 text-blue-gray-500" />
+            <Bars3Icon strokeWidth={3} className="h-6 w-6 text-blue-gray-800" />
           </IconButton>
           
         </div>
@@ -201,25 +208,3 @@ DashboardNavbar.displayName = "/src/widgets/layout/dashboard-navbar.jsx";
 export default DashboardNavbar;
 
 
-{/* <Avatar
-                  src="https://demos.creative-tim.com/material-dashboard/assets/img/team-2.jpg"
-                  alt="item-1"
-                  size="sm"
-                  variant="circular"
-                />
-                <div>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="mb-1 font-normal"
-                  >
-                    <strong>New message</strong> from Laur
-                  </Typography>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="flex items-center gap-1 text-xs font-normal opacity-60"
-                  >
-                    <ClockIcon className="h-3.5 w-3.5" /> 13 minutes ago
-                  </Typography>
-                </div> */}

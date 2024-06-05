@@ -335,10 +335,11 @@ export function Tables() {
             className="border text-center border-gray-300 text-gray-800 rounded-lg px-4 py-2 "
             onChange={handleSearch}
           /> 
-            <Button className=" absolute bg-blue-800 text-white ml-0  px-2 py-[8px]  flex items-center">
-    <MagnifyingGlassIcon className="h-6 w-6" />
-  </Button>
-          
+             <div className=" absolute font-bold   text-black ml-0  px-2 py-[8px]  flex items-center">
+              
+              <MagnifyingGlassIcon className="h-7 w-7 " />
+            </div>
+                    
          
        </div>
        <div className='mr-10'>
@@ -391,7 +392,7 @@ export function Tables() {
                   }`;
 
                   return (
-                    <tr key={name}>
+                    <tr key={name} className="even:bg-blue-gray-100 ">
                       <td className={className}>
                         <div className="flex items-center gap-4">
                           <div>
