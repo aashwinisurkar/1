@@ -577,7 +577,7 @@ const openingamount = async(value) => {
               <label className="uppercase text-blueGray-600 text-[17px] flex justify-center items-center font-bold mb-2 px-2" htmlfor="grid-password">
                 Date
               </label>
-              <input type="date" className="border-2  px-3  py-2  placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
+              <input type="date" className="border-2  px-3  py-2  placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
               onChange={(e) =>{handleDateChange("test", e.target.value)}}
               defaultValue={datetd}
               />
@@ -592,7 +592,8 @@ const openingamount = async(value) => {
             name="option"
             value={pid}
             onChange={(e) => openingamount(e.target.value)}
-            className="w-[180px] border-2 py-2 border-gray-400 rounded-md px-2 "
+            className="w-[180px] border-2 py-2 border-gray-400 rounded-md px-2 
+            shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring"
           >
             <option value="" >Select Plaza</option>
             {plaza.map((option) => (
@@ -644,7 +645,7 @@ const openingamount = async(value) => {
                                                                                 </Typography>
                                                                             </td>
                                                                             <td className="border-2 p-1 w-[200px] ">
-                                                                                {/* <input type="number" placeholder="Expense" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" /> */}
+                                                                                {/* <input type="number" placeholder="Expense" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" /> */}
                                                                                 <select
             id="option"
             name="option"
@@ -661,23 +662,23 @@ const openingamount = async(value) => {
           </select>
                                                                             </td>
                                                                             <td className="border-2 p-1 w-[130px]">
-                                                                                <input type="text" placeholder="Amount" className="border-2 items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[110px]"
+                                                                                <input type="text" placeholder="Amount" className="border-2 items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[110px]"
                                                                                  onChange={(e) => handleEditRowInputChange(rowIndex,'amount',e.target.value)}
                                                                                  value={row.amount} />
                                                                             </td>
                                                                             <td className="border-2  w-[70px]">
-                                                                                <input type="text" placeholder="Voucher No" className="border-2 justify-center items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
+                                                                                <input type="text" placeholder="Voucher No" className="border-2 justify-center items-center placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
                                                                                 onChange={(e) => handleEditRowInputChange(rowIndex,'voucherno',e.target.value)}
                                                                                 value={row.voucherno} />
                                                                             </td>
                                                                             <td className="mx-auto pt-1 px-1 border-2 ">
-                                                                                {/* <input type="text" placeholder="Narration" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
+                                                                                {/* <input type="text" placeholder="Narration" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
                                                                                 onChange={(e) => handleEditRowInputChange(rowIndex,'narration',e.target.value)}
                                                                                 value={row.narration}
                                                                                  /> */}
                                                                                  <textarea
         placeholder="Narration" 
-        className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full h-full "
+        className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring w-full h-full "
         onChange={(e) => handleEditRowInputChange(rowIndex, 'narration', e.target.value)}
         
         value={row.narration}
@@ -707,7 +708,7 @@ const openingamount = async(value) => {
                                                         <div className="flex justify-start  grid grid-col-1 ml-10 items-start">
                           <div className="flex  flex-wrap justify-center items-center w-full  p-2">
         <div className="left-0 ml-10 uppercase m-3 flex-initial  pb-[5px] w-[250px]">Total Expense:</div>
-        <input type="number" placeholder="TOTAL EXPENSE" className="  mr-10 border-2 w-[250px] placeholder-blueGray-300 text-black font-bold  bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="number" placeholder="TOTAL EXPENSE" className="  mr-10 border-2 w-[250px] placeholder-blueGray-300 text-black font-bold  bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
         // value={(formData.opening_amt)+(formData.adv_from_ho)+(formData.total_cash_recievable)+(formData.balaji)+(formData.monthly_pass_amt)-(formData.cash_dep_bank)-(formData.cash_dep_arcpl)-(formData.cash_kpt)}
         value={formData.cash_kpt}
         disabled  />
@@ -716,7 +717,7 @@ const openingamount = async(value) => {
                                                         {/* <div className="flex justify-start items-start">
                           <div className="flex justify-center items-center w-full  p-2">
         <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Expense:</div>
-        <input type="number" placeholder="TOTAL EXPENSE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="number" placeholder="TOTAL EXPENSE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
         // value={(formData.opening_amt)+(formData.adv_from_ho)+(formData.total_cash_recievable)+(formData.balaji)+(formData.monthly_pass_amt)-(formData.cash_dep_bank)-(formData.cash_dep_arcpl)-(formData.cash_kpt)}
         value={formData.cash_kpt}
         disabled  />
@@ -738,7 +739,7 @@ const openingamount = async(value) => {
                           {/* <div className="flex justify-start items-start">
                           <div className="flex justify-center items-center w-full  p-2">
         <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Expense:</div>
-        <input type="number" placeholder="TOTAL EXPENSE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="number" placeholder="TOTAL EXPENSE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
         // value={(formData.opening_amt)+(formData.adv_from_ho)+(formData.total_cash_recievable)+(formData.balaji)+(formData.monthly_pass_amt)-(formData.cash_dep_bank)-(formData.cash_dep_arcpl)-(formData.cash_kpt)}
         value={formData.cash_kpt}
         disabled  />

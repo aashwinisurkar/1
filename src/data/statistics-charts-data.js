@@ -13,10 +13,7 @@ const websiteViewsChart = {
     ...chartsConfig,
     colors: "#388e3c",
     plotOptions: {
-      bar: {
-        columnWidth: "16%",
-        borderRadius: 5,
-      },
+     
     },
     xaxis: {
       ...chartsConfig.xaxis,
@@ -27,7 +24,7 @@ const websiteViewsChart = {
 
 const dailySalesChart = {
   type: "line",
-  height: 260,
+  height: 350,
   series: [
     {
       name: "Sales",
@@ -62,7 +59,7 @@ const dailySalesChart = {
 
 const completedTaskChart = {
   type: "line",
-  // height: 220,
+  height: 220,
   series: [
     {
       name: "Sales",

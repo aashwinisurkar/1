@@ -646,10 +646,10 @@ fetch(api+'get_plaza')
     <div className='w-full  px-0'>
     <div className="flex justify-center items-center">
      <div className="w-full pt-1  justify-center items-center">
-        <div className="rounded-t bg-blue-600 mb-0 py-1">
+        <div className="rounded-t bg-indigo-500 mb-0 py-2">
       <div className="text-center">
         <h6 className="text-white text-2xl font-bold">
-          Plaza Entry
+          PLAZA ENTRY
           {/* {pname.toUpperCase()} */}
         </h6>
       </div>
@@ -662,17 +662,17 @@ fetch(api+'get_plaza')
            
                 <div className=" py-1  justify-center items-center ">
                 <div className="px-2  flex   flex-col lg:flex-row  lg:items-center sm:items-center   justify-center ">
-            <div className="ml-[5px]  flex mb-3">
+            <div className="ml-[5px] mt-3  flex mb-3">
               <label className="uppercase text-blueGray-600 text-[17px] flex justify-center items-center font-bold mb-2 px-2" htmlfor="grid-password">
                 Date
               </label>
-              <input type="date" className="border-2  px-3  py-1  placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
+              <input type="date" className="border-2  px-3  py-2 placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
               onChange={(e) =>{handleDateChange("test", e.target.value)}}
               defaultValue={datetd}
               />
             </div>
 
-            <div className="ml-[40px] flex mb-3">
+            <div className="ml-[40px] mt-3 flex mb-3">
               <label className="uppercase text-blueGray-600 text-[15px] flex justify-start items-center font-bold mb-2 me-2 " htmlfor="grid-password">
               Choose Plaza
               </label>
@@ -681,7 +681,8 @@ fetch(api+'get_plaza')
             name="option"
             value={pid}
             onChange={(e) => openingamount(e.target.value)}
-            className="w-[180px] border-2  border-gray-400 rounded-md px-2 "
+            className="w-[180px] border-2 py-2 border-gray-400 rounded-md px-2 
+            shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring "
           >
             <option value="" >Select Plaza</option>
             {plaza.map((option) => (
@@ -699,13 +700,13 @@ fetch(api+'get_plaza')
                     
    <div className="flex flex-col lg:flex-row ">
              
-   <div className="border rounded-xl py-2 px-2 border-gray-300 shadow-md m-1 max-w-[317px]">
+   <div className="border rounded-xl py-2 px-2 border-gray-300 shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90-md m-1 max-w-[317px]">
 
                           
           {/* summary start */}
       <Card className="h-full w-full border rounded-lg  min-w-[300px]">
-      <div className="flex  bg-purple-200 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
-        <h2 className="font-bold text-[17px] text-dark  ">SUMMARY</h2>
+      <div className="flex  bg-blue-600 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
+        <h2 className="font-bold text-[17px] text-white  ">SUMMARY</h2>
         </div>
       <div className="flex flex-col justify-start w-full mx-2 my-3">
   <div className="  items-start  flex">
@@ -713,36 +714,36 @@ fetch(api+'get_plaza')
   <div className="w-full font-bold my-3 mx-0 text-[13px]">
   <div className="flex  justify-center  items-center p-3">
         <div className="left-0 uppercase  flex-initial   sm:w-[130px]">Opening Amount:</div>
-        <input type="number" placeholder="Opening Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        <input type="number" placeholder="Opening Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
         defaultValue={oi} disabled/>
       </div>
       <div className="flex justify-center items-center   p-4">
         <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL CASH RECEIVES:</div>
-        <input type="number" placeholder="Total cash received" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="number" placeholder="Total cash received" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)}
          disabled /> 
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial     sm:w-[130px]">TOTAL FASTACK RECEIVES:</div>
-        <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
         value={parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
         disabled />
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial    sm:w-[130px]">TOTAL COLLECTION:</div>
-        <input type="number" placeholder="Total collection" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        <input type="number" placeholder="Total collection" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
         value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
         disabled />
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL EXPENCES:</div>
-        <input type="text" placeholder="Total expenses" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="Total expenses" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={(formData.cash_kpt)}
          disabled   />
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial    sm:w-[130px]">CLOSING BALANCE:</div>
-        <input type="number" placeholder="Closing amount " className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="number" placeholder="Closing amount " className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
           value={ parseFloat(oi)+parseFloat(formData.adv_from_ho)+parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)-parseFloat(formData.cash_dep_arcpl)-parseFloat(formData.cash_kpt)}
           disabled  />
       </div>
@@ -768,24 +769,24 @@ fetch(api+'get_plaza')
             
                 <Card className="  flex-grow flex-wrap   ">
                   <div className="flex-col lg:flex-row ">
-            <div className="flex  bg-purple-200 justify-center items-center border rounded-lg  py-1">
-              <h2 className="text-black  text-[17px] font-bold">COLLECTION
+            <div className="flex  bg-blue-600 justify-center items-center border rounded-lg  py-1">
+              <h2 className="text-white text-[17px] font-bold">COLLECTION
                 </h2>
                 </div>
           
           <div className="flex-wrap w-full  justify-start items-start grid grid-cols-1 me-2 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
 
-          <div className="   flex justify-left  items-start py-1">
+          <div className="   flex justify-left ml-5  items-start py-1">
          
       <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[20px] py-2 me-2 sm:w-[120px] sm:ml-0"> ADVANCE FROM HO:</div>
-      <input type="text" placeholder="Advance from H.O" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+      <input type="text" placeholder="Advance from H.O" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
       value={formData.adv_from_ho}
         onChange={(e) => handleInputChange("adv_from_ho", e.target.value)}
          />
     </div>
     <div className="  flex justify-left items-center  py-1">
    <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN ARCPL:</div>
-        <input type="text" placeholder="IN ARCPL" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="IN ARCPL" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={formData.cash_dep_arcpl}
          onChange={(e) => handleInputChange("cash_dep_arcpl", e.target.value)} />
      </div>
@@ -793,15 +794,15 @@ fetch(api+'get_plaza')
     </div>   
     <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
             
-            <div className="   flex justify-left  items-start ">
+            <div className="  ml-5 flex justify-left  items-start ">
            
             <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0"> CASH 1:</div>
-        <input type="text" placeholder="CASH 1" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
+        <input type="text" placeholder="CASH 1" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
         value={formData.total_cash_recievable}  onChange={(e) => handleInputChange("total_cash_recievable", e.target.value)} />
       </div>
       <div className="  flex justify-left items-center w-full  p-2">
           <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN BANK:</div>
-          <input type="text" placeholder="CASH DEPOSITE IN BANK" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          <input type="text" placeholder="CASH DEPOSITE IN BANK" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
        value={formData.cash_dep_bank}
        onChange={(e) => handleInputChange("cash_dep_bank", e.target.value)} />
        </div>
@@ -809,31 +810,31 @@ fetch(api+'get_plaza')
       </div>   
       <div className="flex-wrap  justify-start item-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
             
-            <div className="   flex justify-left  items-start ">
+            <div className="  ml-5  flex justify-left  items-start ">
            
             <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0">Cash 2</div>
-        <input type="text" placeholder="Cash 2" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="Cash 2" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
         value={formData.balaji}
         onChange={(e) => handleInputChange("balaji", e.target.value)}  />
       </div>
       <div className="  flex justify-left items-center w-full  p-2">
           <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[40px] py-1 me-2  sm:w-[130px]">ONLINE MONTHLY PASS AMOUNT:</div>
-          <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
            value={formData.on_monthly_pass_amt}  onChange={(e) => handleInputChange("on_monthly_pass_amt", e.target.value)} /> 
        </div>
   
       </div>   
       <div className="flex-wrap  justify-start item-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
             
-            <div className="   flex justify-left  items-start ">
+            <div className="  ml-5  flex justify-left  items-start ">
            
         <div className="left-0 uppercase  flex-initial font-bold text-[12px] py-1 me-2  ml-[20px] sm:w-[120px] sm:ml-0"> FAST TAG COLLECTION:</div>
-        <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
                 value={formData.total_fast_tag_cl}  onChange={(e) => handleInputChange("total_fast_tag_cl", e.target.value)}  />
       </div>
       <div className="  flex justify-left items-center w-full  p-2">
           <div className="left-0 uppercase  font-bold text-[12px] flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">MONTHLY PASS AMOUNT:</div>
-          <input type="text" placeholder=" MONTHLY PASS AMOUNT:" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          <input type="text" placeholder=" MONTHLY PASS AMOUNT:" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
            value={formData.monthly_pass_amt}   onChange={(e) => handleInputChange("monthly_pass_amt", e.target.value)} 
          />
        </div>
@@ -841,10 +842,10 @@ fetch(api+'get_plaza')
       </div>  
       <div className="flex-wrap  justify-start items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
             
-            <div className="   flex justify-left  items-start ">
+            <div className="   ml-5 flex justify-left  items-start ">
            
         <div className="left-0 uppercase  flex-initial py-1 me-2  font-bold text-[12px] ml-[20px] sm:w-[120px] sm:ml-0"> CASH DEPOSITED BY TC</div>
-        <input type="text" placeholder="by TC" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="by TC" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
        value={formData.total_cash_rec}
        onChange={(e) => handleInputChange("total_cash_rec", e.target.value)} />
       </div>
@@ -861,8 +862,8 @@ fetch(api+'get_plaza')
 <div className=" flex flex-col sm:flex-row md:flex-row ">
   {/* EXPENSE REPORT  */}
 <Card className="h-full flex-grow  flex-wrap   border rounded-lg py-2 overflow-scroll">
-<div className="flex  bg-purple-300 justify-center items-center border rounded-lg  py-1">
-              <h2 className="text-black text-[17px] font-bold">EXPENSES
+<div className="flex  bg-blue-600 justify-center items-center border rounded-lg  py-1">
+              <h2 className="text-white text-[17px] font-bold">EXPENSES
                 </h2>
                 </div>
    <table className="  text-left">
@@ -907,12 +908,12 @@ fetch(api+'get_plaza')
           </select>
                                                                             </td>
                                                                             <td className="p-1 border-2 w-[50px]">
-                                                                                <input type="text" placeholder="Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all "
+                                                                                <input type="text" placeholder="Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all "
                                                                                  onChange={(e) => handleRowInputChange(rowIndex,'amount',e.target.value)}
                                                                                  value={row.amount} />
                                                                             </td>
                                                                             <td className="p-1 border-2 w-[90px]">
-                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
+                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'voucherno',e.target.value)}
                                                                                 value={row.voucherno} />
                 
@@ -922,7 +923,7 @@ fetch(api+'get_plaza')
                                                                                  <textarea
                                                                              placeholder="Narration" 
                                                                            className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded
-                                                                            text-sm shadow focus:outline-none focus:ring h-[40px] w-full   "
+                                                                            text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[40px] w-full   "
                                                                           onChange={(e) => handleRowInputChange(rowIndex, 'narration', e.target.value)}
                                                                        value={row.narration}
                                                                            rows={1}
@@ -940,14 +941,7 @@ fetch(api+'get_plaza')
 
 
 
-              {/* <td className="p-1 border-2 mx-auto">
-                <button
-                  className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-[80px] h-auto"
-                  onClick={(e) =>{ e.preventDefault(); handleEditNarration(rowIndex)}}
-                >
-                   Narration
-                </button>
-              </td> */}
+            
 
 
  <td className="p-4 border-2 w-[10px]">
@@ -959,38 +953,14 @@ fetch(api+'get_plaza')
                               ))}
                                   <tr>
                                    <td colSpan={5} className="p-4 border-2 ">
-                                     <Button color="blue" onClick={handleAddRow}>Add Row</Button>
+                                     <Button color="indigo" onClick={handleAddRow}>Add Row</Button>
                                        </td>
                                        </tr>
                                           </tbody>
                                     </table>
-                                    {/* {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded shadow-lg max-w-md w-full">
-            <h2 className="text-xl mb-4">Edit Narration</h2>
-            <textarea
-              className="w-full border rounded p-2 mb-4"
-              rows="5"
-              value={currentNarration}
-              onChange={(e) => setCurrentNarration(e.target.value)}
-            />
-            <div className="flex justify-end">
-              <button
-                className="mr-2 bg-gray-500 text-white px-4 py-2 rounded"
-                onClick={() => setIsModalOpen(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded"
-                onClick={handleSaveNarration}
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
+                               
+       
+ 
    </Card>
    </div>
    {/* EXPENSE REPORT END  */}

@@ -44,6 +44,8 @@ import {
 } from "@/data";
 import { CheckCircleIcon, ClockIcon } from "@heroicons/react/24/solid";
 import api from "@/ApiLink.mjs";
+import { blue } from "@mui/material/colors";
+import { WidthFull } from "@mui/icons-material";
 
 const data = [
   {
@@ -148,7 +150,9 @@ export function Home() {
   const [currentItems3,setcurrentItems3] = useState([]);
   const [monthlysale,setmonthlysale] = useState([]);
   const [monthlyexp,setmonthlyexp] = useState([]);
+  const [monthlyremi,setmonthlyremi] = useState([]);
   const [cstat,setstat] = useState('');
+
  
 
   const fdate = (value) =>{
@@ -386,15 +390,37 @@ export function Home() {
         // setcurrentItems3(data.data);
         // console.log(data.Result);
         setmonthlyexp(data.Result);
+        // setmonthlyremi(data.Result);
       })
+
       .catch((error) => {
         console.error('Error fetching options:', error);
       },[]);
+      // //monthly remittance  reports 
+      // fetch(api+'monthlyremitnceamount',{
+      //   method: 'POST',
+      //   body: JSON.stringify({ year: currentYear }),
+      // })
+      // .then((response) => response.json())
+      // .then((data) => {
+      //   // setcurrentItems3(data.data);
+      //   console.log(data)
+      //   // console.log(data.Result);
+      //   setmonthlyremi(data.Result);
+      // })
+
+      // .catch((error) => {
+      //   console.error('Error fetching options:', error);
+      // },[]);
+
+
+
+
 
      
   },[cstat]);
 
-  const entriesData = monthlysale.map((item) => parseInt(item.amount));
+ 
 // test start
 const uniqueMonths = [...new Set(monthlysale.map(item => item.month))];
 
@@ -407,8 +433,12 @@ const allMonths = uniqueMonths.map(month => {
   // const allMonths = Array.from({ length: 12 }, (_, index) => {
   //   return new Date(2024, index, 1).toLocaleString('default', { month: 'long' });
   // });
-
+  const entriesData = monthlysale.map((item) => parseInt(item.amount));
+  // console.log(entriesData)
   const expentry = monthlyexp.map((item)=> parseInt(item.amount));
+  console.log(expentry)
+  const remientry= monthlyexp.map((item)=> parseInt(item.RemittanceAmount));
+  // console.log(remientry)
   const entrydetails = monthlyexp.map((item)=> parseInt(item.entries));
 
   // const toggleOpen = () => setOpen((cur) => !cur);
@@ -459,27 +489,57 @@ const allMonths = uniqueMonths.map(month => {
 
   const MonthlySale = {
     type: "bar",
-  height: 380,
+  height: 420,
+
   series: [
     {
       name: "Collection",
-      // type: "column",
       data: entriesData,
     },
     {
       name: "Expense",
       data: expentry,
     },
+    {
+      name: "RemittanceAmount",
+      data: remientry,
+    },
   ],
   options: {
     ...chartsConfig,
-    colors: ["#388e3c", "#FF0000"],
-    plotOptions: {
-      bar: {
-        columnWidth: "26%",
-        borderRadius: 10,
-      },
+    colors: ["#388e3c", "#FF0000", "#0000ff"],
+    // plotOptions: {
+    //   bar: {
+    //     columnWidth: "26%",
+    //     borderRadius: 10,
+    //   },
+    // },
+    // stroke: {
+    //   lineCap: "round",
+    // },
+    // markers: {
+    //   size: 7,
+    // },
+    xaxis: {
+      ...chartsConfig.xaxis,
+      categories: allMonths,
     },
+  },
+};
+
+const entrydetail = {
+  type: "line",
+  height: 420,
+  WidthFull:200,
+  series: [
+    {
+      name: "Entries",
+      data: entrydetails,
+    },
+  ],
+  options: {
+    ...chartsConfig,
+    colors: ["#0288d1"],
     stroke: {
       lineCap: "round",
     },
@@ -488,35 +548,10 @@ const allMonths = uniqueMonths.map(month => {
     },
     xaxis: {
       ...chartsConfig.xaxis,
-      categories: allMonths,
+      categories: allMonths
     },
   },
 };
-
-  const entrydetail = {
-    type: "line",
-    height: 380,
-    series: [
-      {
-        name: "Entries",
-        data: entrydetails,
-      },
-    ],
-    options: {
-      ...chartsConfig,
-      colors: ["#0288d1"],
-      stroke: {
-        lineCap: "round",
-      },
-      markers: {
-        size: 5,
-      },
-      xaxis: {
-        ...chartsConfig.xaxis,
-        categories: allMonths
-      },
-    },
-  };
 
 
     
@@ -868,10 +903,10 @@ const allMonths = uniqueMonths.map(month => {
       </Collapse>
       </div>
       
-      <div className="mb-6  flex-row grid grid-cols-2 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-2">
-      
-      
+      <div className="mb-6  flex-wrap  flex-row grid grid-cols-1 gap-y-12 gap-x-10 md:grid-cols-2 xl:grid-cols-2">
+      {/* <div className="mb-6 flex-wrap flex-cols-2 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2"> */}
         {/* <Card> */}
+        <div>
         <StatisticsChart
         key = 'ChartData'
         color="white" 
@@ -879,18 +914,26 @@ const allMonths = uniqueMonths.map(month => {
         title = "Monthly Collection and Expenses"
         chart ={MonthlySale} 
         />
+        </div>
        
         
 
-        
-        <StatisticsChart
+        <div className="ml-5">
+       <StatisticsChart
         key = 'Daily Sales1'
         color="white" 
         description = "MonthWise Entries "
         title = "Monthly Entries"
         chart ={entrydetail} 
         />
-        
+        </div>
+              {/* <StatisticsChart
+        key = 'remitance'
+        color="white" 
+        description="MonthWise Expenses"
+        title = "Monthly  Remitance"
+        chart ={} 
+        /> */}
         </div>
       </div>
     

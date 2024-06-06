@@ -58,8 +58,8 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
   }, []);
 
   return (
-    <aside className={`${sidenavTypes[sidenavType]} ${openSidenav ? "translate-x-0" : "-translate-x-80"} fixed inset-0 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 border border-blue-gray-100 z-[10]`}
-    style={{ overflowY: 'scroll', scrollbarWidth: 'none', '-ms-overflow-style': 'none' }}>
+    <aside className={`${sidenavTypes[sidenavType]} ${openSidenav ? "translate-x-0" : "-translate-x-80"} fixed inset-0 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 border shadow-indigo-500/50  border-blue-gray-100 z-[10]`}
+    style={{ overflowY: 'scroll', scrollbarWidth: 'none', '-ms-overflow-style': 'none', boxShadow: '2px 2px 7px 1px #4b5498'  }}>
       <div className="relative h-full ">
       <div className={`relative `}>
         <Link to="/" className="py-6 px-8 text-center">

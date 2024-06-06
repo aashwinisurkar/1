@@ -372,7 +372,7 @@ const handleSearch = (e) => {
                   }`;
 
                   return (
-                    <tr key={name} className="even:bg-blue-gray-100 ">
+                    <tr key={name} className="even:bg-blue-gray-50/50 ">
                       <td className={className}>
                         <div className="flex items-center gap-4">
                           <div>

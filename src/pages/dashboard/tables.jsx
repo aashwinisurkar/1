@@ -320,7 +320,7 @@ export function Tables() {
     </CardHeader> */}
     <CardHeader variant="gradient" color="blue" className="mb-8 py-4  ">
       <div className="flex ml-5 justify-between items-center">
-        <Typography variant="h4" >
+        <Typography variant="h4" className='hover:text-indigo-600'>
         User Table
         </Typography>
         <div className="  justify-start flex">
@@ -332,7 +332,8 @@ export function Tables() {
             type="search" 
             value={searchData}
             placeholder="search user" 
-            className="border text-center border-gray-300 text-gray-800 rounded-lg px-4 py-2 "
+            className="border text-center border-gray-300 text-gray-800 rounded-lg px-4 py-2
+            shadow-indigo-500/50 shadow-lg dark:shadow-lg dark:shadow-indigo-900/90 focus:outline-none focus:ring "
             onChange={handleSearch}
           /> 
              <div className=" absolute font-bold   text-black ml-0  px-2 py-[8px]  flex items-center">
@@ -344,7 +345,7 @@ export function Tables() {
        </div>
        <div className='mr-10'>
           <Button
-          className='buttons py-3 bg-blue-800 focus-within:shadow-lg   ml-[150px] px-8'
+          className='buttons py-3 bg-blue-800 focus-within:shadow-lg   ml-[150px] px-8 hover:bg-green-600'
           color='gray'
           onClick={addUser}>Add user</Button>
           </div>
@@ -392,7 +393,7 @@ export function Tables() {
                   }`;
 
                   return (
-                    <tr key={name} className="even:bg-blue-gray-100 ">
+                    <tr key={name} className="even:bg-blue-gray-50/50">
                       <td className={className}>
                         <div className="flex items-center gap-4">
                           <div>

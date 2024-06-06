@@ -402,11 +402,11 @@ setrem(data.remitance)
     {/* flex justify-center items-center */}
     <div className='w-full  flex-wrap '>
         {/* head part start */}
-    <div className=" w-full bg-blue-700  justify-center items-center">
+    <div className=" w-full bg-indigo-600  justify-center items-center">
    
-        <div className="rounded-t  mb-0 py-4">
+        <div className="rounded-t  mb-0 py-3">
       <div className="text-center">
-        <h6 className="text-dark text-xl font-bold">
+        <h6 className="text-white text-xl font-bold">
            Plaza Report
           {/* {pname.toUpperCase()} */}
         </h6>
@@ -446,8 +446,8 @@ setrem(data.remitance)
                                            
                            {/* summary start */}
                        <Card className="h-full w-full border rounded-lg  md-w-[300px]">
-                       <div className="flex  bg-purple-200 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
-                         <h2 className="font-bold text-[17px] text-dark  ">SUMMARY</h2>
+                       <div className="flex  bg-blue-600 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
+                         <h2 className="font-bold text-[17px] text-white  ">SUMMARY</h2>
                          </div>
                        <div className="flex flex-col justify-start w-full mx-2 my-3">
                    <div className="  items-start  flex">
@@ -512,14 +512,14 @@ setrem(data.remitance)
                                  <Card className="  flex flex-wrap    ">  
                                  {/* //lg:w-[900px] md:w-[700px] */}
                                  <div className="flex-col lg:flex-row ">
-                             <div className="flex bg-purple-200 justify-center items-center border rounded-lg  py-1">
-                               <h2 className="text-dark  text-[17px] font-bold">COLLECTION
+                             <div className="flex bg-blue-600 justify-center items-center border rounded-lg  py-1">
+                               <h2 className="text-white  text-[17px] font-bold">COLLECTION
                                  </h2>
                                  </div>
                            
                                  <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
                  
-                           <div className="   flex justify-left  items-start py-1">
+                           <div className="  ml-5  flex justify-left  items-start py-1">
                           
                        <div className="left-0 uppercase font-bold text-[12px] flex-initial   ml-[20px] py-1 me-2 sm:w-[100px]"> ADVANCE FROM HO:</div>
                        <input type="text" placeholder="Advance from H.O" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
@@ -537,7 +537,7 @@ setrem(data.remitance)
                      </div>   
                      <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
                              
-                             <div className="   flex justify-left  items-start ">
+                             <div className="   ml-5 flex justify-left  items-start ">
                             
                              <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[20px] py-1 me-2 sm:w-[100px]"> CASH 1:</div>
                          <input type="text" placeholder="CASH 1" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
@@ -553,7 +553,7 @@ setrem(data.remitance)
                        </div>   
                       <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
                              
-                             <div className="   flex justify-left  items-start ">
+                             <div className="   ml-5 flex justify-left  items-start ">
                             
                              <div className="left-0 uppercase  flex-initial  ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[100px]">Cash 2</div>
                          <input type="text" placeholder="Cash 2" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
@@ -569,7 +569,7 @@ setrem(data.remitance)
                        </div>   
                        <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
                              
-                             <div className="   flex justify-left  items-start ">
+                             <div className="  ml-5  flex justify-left  items-start ">
                             
                          <div className="left-0 uppercase  flex-initial font-bold text-[12px] py-1 me-2   ml-[20px] sm:w-[100px]"> FAST TAG COLLECTION:</div>
                          <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
@@ -585,7 +585,7 @@ setrem(data.remitance)
                        </div>  
                        <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
                              
-                             <div className="   flex justify-left  items-start ">
+                             <div className="   ml-5 flex justify-left  items-start ">
                             
                          <div className="left-0 uppercase  flex-initial py-1 me-2  font-bold text-[12px]    ml-[20px] sm:w-[100px]"> CASH DEPOSITED BY TC</div>
                          <input type="text" placeholder="by TC" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
@@ -605,8 +605,8 @@ setrem(data.remitance)
              <div className="my-1 flex flex-col sm:flex-row md:flex-row">
                    {/* EXPENSE REPORT  */}
                  <Card className="h-full  flex-wrap flex-grow  border rounded-lg py-2 overflow-scroll">
-                 <div className="flex bg-purple-200 justify-center items-center   py-1">
-                               <h2 className="text-dark text-[17px] font-bold">EXPENSES
+                 <div className="flex bg-blue-600 justify-center items-center   py-1">
+                               <h2 className="text-white text-[17px] font-bold">EXPENSES
                                  </h2>
                                  </div>
                     <table className=" min-w-max text-left">
@@ -695,7 +695,7 @@ setrem(data.remitance)
                                                ))}
                                                    <tr>
                                                     <td colSpan={5} className="p-4 border-2 ">
-                                                      <Button color="blue" onClick={handleAddRow}>Add Row</Button>
+                                                      <Button color="indigo" onClick={handleAddRow}>Add Row</Button>
                                                         </td>
                                                         </tr>
                                                            </tbody>

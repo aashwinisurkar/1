@@ -10,7 +10,7 @@ import Chart from "react-apexcharts";
 
 export function StatisticsChart({ color, chart, title, description, footer }) {
   return (
-    <Card className="border-2 border-blue-gray-100 lg:shadow-amber-500">
+    <Card className="border-2 border-blue-gray-100 lg:shadow-indigo-400">
       <CardHeader variant="gradient" color={color} floated={false} shadow={false}>
         <Chart {...chart} />
       </CardHeader>

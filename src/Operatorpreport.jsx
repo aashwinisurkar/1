@@ -657,147 +657,238 @@ handleInputChange("initial_opn", data.io)
     <>
     {/* <Card> */}
     {/* <div className="px-5"> */}
-    <div className='pt-2 w-full '>
-    {/* className="h-[800px]" */}
-    {/* flex justify-center items-center */}
-    <div className='w-full'>
-        {/* head part start */}
+    <div className=' w-full  flex pt-1'>
+    <div className='w-full  px-0'>
     <div className="flex justify-center items-center">
-     <div className="w-full pt-4  justify-center items-center">
-        <div className="rounded-t bg-black mb-0 py-6">
+     <div className="w-full pt-1  justify-center items-center">
+        <div className="rounded-t bg-indigo-500 mb-0 py-2">
       <div className="text-center">
-        <h6 className="text-white text-xl font-bold">
-          {/* Plaza Entry */}
-          {pname.toUpperCase()}
+        <h6 className="text-white text-2xl font-bold">
+          PLAZA ENTRY
+          {/* {pname.toUpperCase()} */}
         </h6>
       </div>
     </div>
     </div>
     </div>
-    {/* head part end */}
-    {/* form part start */}
-    <div className="w-full h-full bg-white">
-    {/* className="w-full py-4 mx-8 justify-center items-center bg-white" */}
-    {/* className="w-full  bg-white" */}
-    <form className=" h-full w-full">
-        {/* <div> */}
-            <div className=" overflow-scroll">
-                <div className=" py-4 mx-8  justify-center items-center bg-white">
-                <div className="px-4">
-            <div className=" flex mb-5">
-              <label className="uppercase text-blueGray-600 text-[20px] flex justify-start items-center font-bold mb-2 px-2" htmlfor="grid-password">
-                {/* Choose  */}
+    <div className="w-full h-full bg-white ">
+    <form className=" h-full w-full  ">
+            {/* <div className=" overflow-scroll"> */}
+           
+                <div className=" py-1  justify-center items-center ">
+                <div className="px-2  flex   flex-col lg:flex-row  lg:items-center sm:items-center   justify-center ">
+            <div className="ml-[5px] mt-3  flex mb-3">
+              <label className="uppercase text-blueGray-600 text-[17px] flex justify-center items-center font-bold mb-2 px-2" htmlfor="grid-password">
                 Date
               </label>
-              <input type="date" className="border-4 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
+              <input type="date" className="border-2  px-3  py-2 placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
               onChange={(e) =>{handleDateChange("test", e.target.value)}}
-            //   onChange={(e) =>{handleDateChange("test", e.target.value)}}  w-full
-            defaultValue={datetd}
-            // disabled
+              defaultValue={datetd}
               />
             </div>
+
+            <div className="ml-[40px] mt-3 flex mb-3">
+              <label className="uppercase text-blueGray-600 text-[15px] flex justify-start items-center font-bold mb-2 me-2 " htmlfor="grid-password">
+              Choose Plaza
+              </label>
+              <select
+            id="option1"
+            name="option"
+            value={pid}
+            onChange={(e) => openingamount(e.target.value)}
+            className="w-[180px] border-2 py-2 border-gray-400 rounded-md px-2 "
+          >
+            <option value="" >Select Plaza</option>
+            {plaza.map((option) => (
+              <option  value={option.plaza_id}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+            </div>
+
+           
+
           </div>
-                    <div className="oveflow-scroll h-[500px]">
-                    {/* overflow-y-auto */}
-                    {/* report part start */}
-                        <div className="grid grid-cols-2">
-                        {/* flex justify-center items-center */}
-                            <div className="border-2 border-black m-4  overflow-scroll max-w-[450px]">
-                            {/* p-5 */}
-          {/* Collection start */}
-      <Card className="h-full w-full min-w-[350px]">
-      <div className="flex justify-center items-center font-bold text-[25px] mb-[-20px]">Collection Report</div>
-      <div className="flex justify-start w-full m-5">
-  <div className=" p-4  items-start  flex">
-  {/* border-2  border-red-400 ml-[-10px]*/}
-    <div className="w-full font-bold m-4">
-      <div className="flex justify-center items-center w-full p-1">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Opening Amount:</div>
-        <input type="text" placeholder="Opening Amount" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" defaultValue={oi} disabled />
+     <div className=" flex-grow-1 ">
+                    
+   <div className="flex flex-col lg:flex-row ">
+             
+   <div className="border rounded-xl py-2 px-2 border-gray-300 shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90-md m-1 max-w-[317px]">
+
+                          
+          {/* summary start */}
+      <Card className="h-full w-full border rounded-lg  min-w-[300px]">
+      <div className="flex  bg-blue-600 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
+        <h2 className="font-bold text-[17px] text-white  ">SUMMARY</h2>
+        </div>
+      <div className="flex flex-col justify-start w-full mx-2 my-3">
+  <div className="  items-start  flex">
+
+  <div className="w-full font-bold my-3 mx-0 text-[13px]">
+  <div className="flex  justify-center  items-center p-3">
+        <div className="left-0 uppercase  flex-initial   sm:w-[130px]">Opening Amount:</div>
+        <input type="number" placeholder="Opening Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        defaultValue={oi} disabled/>
       </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Advance from H.O:</div>
-        <input type="text" placeholder="Advance from H.O" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.adv_from_ho}
-        onChange={(e) => handleInputChange("adv_from_ho", e.target.value)}
-         />
+      <div className="flex justify-center items-center   p-4">
+        <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL CASH RECEIVES:</div>
+        <input type="number" placeholder="Total cash received" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+         value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)}
+         disabled /> 
       </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Cash 1</div>
-        <input type="text" placeholder="System Cash" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.total_cash_recievable}
-        onChange={(e) => handleInputChange("total_cash_recievable", e.target.value)} />
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial     sm:w-[130px]">TOTAL FASTACK RECEIVES:</div>
+        <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        value={parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
+        disabled />
       </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Cash 2</div>
-        <input type="text" placeholder="Cash 2" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.balaji}
-        onChange={(e) => handleInputChange("balaji", e.target.value)}  />
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial    sm:w-[130px]">TOTAL COLLECTION:</div>
+        <input type="number" placeholder="Total collection" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
+        disabled />
       </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">MONTHLY PASS AMOUNT:</div>
-        <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.monthly_pass_amt}
-        onChange={(e) => handleInputChange("monthly_pass_amt", e.target.value)} />
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL EXPENCES:</div>
+        <input type="text" placeholder="Total expenses" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+         value={(formData.cash_kpt)}
+         disabled   />
       </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Online MONTHLY PASS AMOUNT:</div>
-        <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.on_monthly_pass_amt}
-        onChange={(e) => handleInputChange("on_monthly_pass_amt", e.target.value)} />
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial    sm:w-[130px]">CLOSING BALANCE:</div>
+        <input type="number" placeholder="Closing amount " className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          value={ parseFloat(oi)+parseFloat(formData.adv_from_ho)+parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)-parseFloat(formData.cash_dep_arcpl)-parseFloat(formData.cash_kpt)}
+          disabled  />
       </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Cash Deposited by TC:</div>
-        <input type="text" placeholder="Cash Deposited by TC" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.total_cash_rec}
-        onChange={(e) => handleInputChange("total_cash_rec", e.target.value)} />
-      </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">CASH DEPOSITED IN ARCPL:</div>
-        <input type="text" placeholder="CASH DEPOSITED IN ARCPL" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.cash_dep_arcpl}
-        onChange={(e) => handleInputChange("cash_dep_arcpl", e.target.value)} />
-      </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">CASH DEPOSITED IN bank:</div>
-        <input type="text" placeholder="CASH DEPOSITED IN BANK" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.cash_dep_bank}
-        onChange={(e) => handleInputChange("cash_dep_bank", e.target.value)} />
-      </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">FAST TAG COLLECTION:</div>
-        <input type="text" placeholder="FAST TAG COLLECTION" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.total_fast_tag_cl}
-        onChange={(e) => handleInputChange("total_fast_tag_cl", e.target.value)} />
-      </div>
-      {/* <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">EXCESS AMOUNT ADJUSTMENT:</div>
-        <input type="number" placeholder="EXCESS AMOUNT ADJUSTMENT" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.excess_amt_adj} 
-        onChange={(e) => handleInputChange("excess_amt_adj", e.target.value)}/>
-      </div> */}
-      {/* <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">short AMOUNT ADJUSTMENT:</div>
-        <input type="number" placeholder="SHORT AMOUNT ADJUSTMENT" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.short_amt_adj} 
-        onChange={(e) => handleInputChange("short_amt_adj", e.target.value)}/>
-      </div> */}
-      {/* <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">FAST TAG DEPOSITED IN BANK:</div>
-        <input type="number" placeholder="FAST TAG DEPOSITED IN BANK" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" value={formData.fst_tg_trf_bnk}
-        onChange={(e) => handleInputChange("fst_tg_trf_bnk", e.target.value)}  />
-      </div> */}
+   
+     
+      
     </div>
   </div>
-</div>
-
+  </div>
+  <div className="  mb-2 px-2 flex justify-center  items-center ">
+                          <Button color="green" onClick={handlesubmit}>Submit</Button>
+                        </div>
 </Card>
-          {/* collection end */}
-                            </div>
-                            <div className="p-4 border-2 border-black m-4 ml-[-60px]">
-                            <div className="w-full left-0">
-                            <div className="flex justify-center items-center font-bold text-[25px] mb-[-15px]">Expense Report</div>
-                              <div className="w-full m-4 p-4">
-                              {/* border-2 border-red-400 */}
-                            <Card className="h-full w-full max-w-[800px] overflow-scroll">
-                                                            <table className="w-full min-w-max table-auto text-left">
+               {/* SUMMARY REPORT END  */}
+        
+          </div> 
+
+         
+          <div className="  flex-grow  flex-wrap m-1 border border-gray-300 rounded-lg md:w-[1000px] ">
+
+        <div className=" flex flex-col sm:flex-row  w-full  p-2 ">  
+            {/* COLLECTION REPORT */}
+            
+                <Card className="  flex-grow flex-wrap   ">
+                  <div className="flex-col lg:flex-row ">
+            <div className="flex  bg-blue-600 justify-center items-center border rounded-lg  py-1">
+              <h2 className="text-white text-[17px] font-bold">COLLECTION
+                </h2>
+                </div>
+          
+          <div className="flex-wrap w-full  justify-start items-start grid grid-cols-1 me-2 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+
+          <div className="   ml-5 flex justify-left  items-start py-1">
+         
+      <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[20px] py-2 me-2 sm:w-[120px] sm:ml-0"> ADVANCE FROM HO:</div>
+      <input type="text" placeholder="Advance from H.O" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+      value={formData.adv_from_ho}
+        onChange={(e) => handleInputChange("adv_from_ho", e.target.value)}
+         />
+    </div>
+    <div className="  flex justify-left items-center  p-2">
+   <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN ARCPL:</div>
+        <input type="text" placeholder="IN ARCPL" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+         value={formData.cash_dep_arcpl}
+         onChange={(e) => handleInputChange("cash_dep_arcpl", e.target.value)} />
+     </div>
+
+    </div>   
+    <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="  ml-5  flex justify-left  items-start ">
+           
+            <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0"> CASH 1:</div>
+        <input type="text" placeholder="CASH 1" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
+        value={formData.total_cash_recievable}  onChange={(e) => handleInputChange("total_cash_recievable", e.target.value)} />
+      </div>
+      <div className="  flex justify-left items-center w-full  p-2">
+          <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN BANK:</div>
+          <input type="text" placeholder="CASH DEPOSITE IN BANK" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+       value={formData.cash_dep_bank}
+       onChange={(e) => handleInputChange("cash_dep_bank", e.target.value)} />
+       </div>
+  
+      </div>   
+      <div className="flex-wrap  justify-start item-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="  ml-5  flex justify-left  items-start ">
+           
+            <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0">Cash 2</div>
+        <input type="text" placeholder="Cash 2" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        value={formData.balaji}
+        onChange={(e) => handleInputChange("balaji", e.target.value)}  />
+      </div>
+      <div className="  flex justify-left items-center w-full  p-2">
+          <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[40px] py-1 me-2  sm:w-[130px]">ONLINE MONTHLY PASS AMOUNT:</div>
+          <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+           value={formData.on_monthly_pass_amt}  onChange={(e) => handleInputChange("on_monthly_pass_amt", e.target.value)} /> 
+       </div>
+  
+      </div>   
+      <div className="flex-wrap  justify-start item-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="  ml-5  flex justify-left  items-start ">
+           
+        <div className="left-0 uppercase  flex-initial font-bold text-[12px] py-1 me-2  ml-[20px] sm:w-[120px] sm:ml-0"> FAST TAG COLLECTION:</div>
+        <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+                value={formData.total_fast_tag_cl}  onChange={(e) => handleInputChange("total_fast_tag_cl", e.target.value)}  />
+      </div>
+      <div className="  flex justify-left items-center w-full  p-2">
+          <div className="left-0 uppercase  font-bold text-[12px] flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">MONTHLY PASS AMOUNT:</div>
+          <input type="text" placeholder=" MONTHLY PASS AMOUNT:" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+           value={formData.monthly_pass_amt}   onChange={(e) => handleInputChange("monthly_pass_amt", e.target.value)} 
+         />
+       </div>
+  
+      </div>  
+      <div className="flex-wrap  justify-start items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="  ml-5  flex justify-left  items-start ">
+           
+        <div className="left-0 uppercase  flex-initial py-1 me-2  font-bold text-[12px] ml-[20px] sm:w-[120px] sm:ml-0"> CASH DEPOSITED BY TC</div>
+        <input type="text" placeholder="by TC" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+       value={formData.total_cash_rec}
+       onChange={(e) => handleInputChange("total_cash_rec", e.target.value)} />
+      </div>
+     
+  
+      </div>    
+      </div></Card>
+              </div>
+              {/* COLLECTION REPORT END */}
+              <div>
+                
+              </div>
+<div className=" flex-grow flex-wrap   mx-2">
+<div className=" flex flex-col sm:flex-row md:flex-row ">
+  {/* EXPENSE REPORT  */}
+<Card className="h-full flex-grow  flex-wrap   border rounded-lg py-2 overflow-scroll">
+<div className="flex  bg-blue-600 justify-center items-center border rounded-lg  py-1">
+              <h2 className="text-white text-[17px] font-bold">EXPENSES
+                </h2>
+                </div>
+   <table className="  text-left">
                                                                 <thead>
                                                                     <tr>
                                                                         {TABLE_HEAD.map((head) => (
-                                                                            <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 p-4 w-[120px]">
+                                                                            <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 mx-auto  py-2 px-3">
                                                                                 <Typography
                                                                                     variant="small"
                                                                                     color="blue-gray"
-                                                                                    className="font-normal leading-none opacity-70 flex justify-center items-center w-[80px]"
+                                                                                    className="font-bold leading-none  mx-auto  flex justify-center items-center "
                                                                                 >
                                                                                     {head}
                                                                                 </Typography>
@@ -808,21 +899,21 @@ handleInputChange("initial_opn", data.io)
                                                                 <tbody>
                                                                     {rowData.map((row, rowIndex) => (
                                                                         <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'even:bg-blue-gray-50/50' : ''}>
-                                                                            <td className="p-4 border-2 w-[10px]">
-                                                                                <Typography variant="small" color="blue-gray" className="font-normal flex justify-center items-center">
+                                                                            <td className="  p-1 w-[1px] border-2 ">
+                                                                                <Typography variant="small" color="blue-gray" className="font-bold flex justify-center items-center">
                                                                                     {rowIndex + 1}
                                                                                 </Typography>
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[80px]">
-                                                                                {/* <input type="number" placeholder="Expense" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" /> */}
+                                                                            <td className=" border-2 w-[7px]">
+                                                                           
                                                                                 <select
             id="option"
             name="option"
             onChange={(e) => handleRowInputChange(rowIndex,'id',e.target.value)}
             value={row.id}
-            className="w-full border border-gray-300 rounded-md p-2 h-[37px] uppercase"
+            className="w-[150px] border border-gray-300 rounded-md p-2 h-[37px] uppercase"
           >
-            <option value="" >Select Expense</option>
+            <option value="" className="font-normal  text-15px]">Select Expense</option>
             {options.map((option) => (
               <option  value={option.id}>
                 {option.name}
@@ -830,102 +921,117 @@ handleInputChange("initial_opn", data.io)
             ))}
           </select>
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
-                                                                                <input type="number" placeholder="Amount" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
+                                                                            <td className="p-1 border-2 w-[50px]">
+                                                                                <input type="text" placeholder="Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all "
                                                                                  onChange={(e) => handleRowInputChange(rowIndex,'amount',e.target.value)}
                                                                                  value={row.amount} />
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
-                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
+                                                                            <td className="p-1 border-2 w-[90px]">
+                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'voucherno',e.target.value)}
                                                                                 value={row.voucherno} />
+                
+                                                                           </td>
+                                                                       <td className="p-1 border-2 ">
+                                                                                
+                                                                                 <textarea
+                                                                             placeholder="Narration" 
+                                                                           className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded
+                                                                            text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[40px] w-full   "
+                                                                          onChange={(e) => handleRowInputChange(rowIndex, 'narration', e.target.value)}
+                                                                       value={row.narration}
+                                                                           rows={1}
+                                                                      // style={{ minHeight: '27px', maxHeight:"600px" }} 
+                                                                            />
                                                                             </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
-                                                                                {/* <input type="text" placeholder="Narration" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
-                                                                                onChange={(e) => handleRowInputChange(rowIndex,'narration',e.target.value)}
-                                                                                value={row.narration} /> */}
-                                                                                <textarea
-        placeholder="Narration" 
-        className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full h-auto resize-horizontal"
-        onChange={(e) => handleRowInputChange(rowIndex, 'narration', e.target.value)}
-        value={row.narration}
-        rows={1}
-        style={{ minHeight: '27px' }} 
-    />
-                                                                            </td>
-                                                                            <td className="p-4 border-2 w-[30px]">
-                                                                                {/* <Button color="red" onClick={() => handleDeleteRow(rowIndex)}>Delete</Button> */}
-                                                                                <TrashIcon color="red" onClick={() =>handleDeleteRow(rowIndex)}
-                                                                                className="h-5 ml-[30px] cursor-pointer"/>
-                                                                            </td>
-                                                                        </tr>
-                                                                    ))}
-                                                                    <tr>
-                                                                        <td colSpan={5} className="p-4 border-2">
-                                                                            <Button color="black" onClick={handleAddRow}>Add Row</Button>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </Card>
-                                                        </div>
-          </div>
-                            </div>
-                        </div>
-                        {/* report part end */}
-                        {/* calculation part start */}
-                        <div className="border-2 border-black  font-bold p-4">
-                          <div className="flex justify-start items-start">
-                          <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Cash Received:</div>
-        <input type="number" placeholder="TOTAL CASH RECEIVED" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-        value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)}
-        disabled />
-      </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Fast Tag Receivable:</div>
-        <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-        value={parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
-        disabled />
-      </div>
-                          </div>
-                          <div className="flex justify-start items-start">
-                          <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Closing Balance:</div>
-        <input type="number" placeholder="Closing Balance" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-        value={parseFloat(oi)+parseFloat(formData.adv_from_ho)+parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)-parseFloat(formData.cash_dep_bank)-parseFloat(formData.cash_dep_arcpl)-parseFloat(formData.cash_kpt)}
-        disabled  />
-      </div>
-      <div className="flex justify-center items-center w-full  p-2">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">total collection:</div>
-        <input type="number" placeholder="TOTAL COLLECTION" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-        value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
-        disabled />
-      </div>
-                          </div>
-                          <div className="flex justify-start items-start">
-                          <div className=" flex w-full   p-4">
-        <div className="left-0 uppercase m-3 flex-initial ml-[-30px] pb-[5px] w-[250px]">Total Expense:</div>
-        <input type="number" placeholder="Total expense" className="border-2 w-[250px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-        value={formData.cash_kpt}
-        disabled  />
-      </div>
 
-      
-                          </div>
-                        </div>
-                        {/* calculation part ends  */}
-                        <div className="m-5 flex justify-end items-end">
-                          <Button color="green" onClick={handlesubmit}>Submit</Button>
-                        </div>
-                    </div>
-                </div>
+
+
+
+
+
+
+
+
+
+
+              {/* <td className="p-1 border-2 mx-auto">
+                <button
+                  className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring w-[80px] h-auto"
+                  onClick={(e) =>{ e.preventDefault(); handleEditNarration(rowIndex)}}
+                >
+                   Narration
+                </button>
+              </td> */}
+
+
+ <td className="p-4 border-2 w-[10px]">
+                 {/* <Button color="red" onClick={() => handleDeleteRow(rowIndex)}>Delete</Button> */}
+                     <TrashIcon color="red" onClick={() =>handleDeleteRow(rowIndex)}
+                          className="h-5 ml-[20px] cursor-pointer"/>
+                          </td>
+                            </tr>
+                              ))}
+                                  <tr>
+                                   <td colSpan={5} className="p-4 border-2 ">
+                                     <Button color="blue" onClick={handleAddRow}>Add Row</Button>
+                                       </td>
+                                       </tr>
+                                          </tbody>
+                                    </table>
+                                    {/* {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90-lg max-w-md w-full">
+            <h2 className="text-xl mb-4">Edit Narration</h2>
+            <textarea
+              className="w-full border rounded p-2 mb-4"
+              rows="5"
+              value={currentNarration}
+              onChange={(e) => setCurrentNarration(e.target.value)}
+            />
+            <div className="flex justify-end">
+              <button
+                className="mr-2 bg-gray-500 text-white px-4 py-2 rounded"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+                onClick={handleSaveNarration}
+              >
+                Save
+              </button>
             </div>
-        {/* </div> */}
+          </div>
+        </div>
+      )} */}
+   </Card>
+   </div>
+   {/* EXPENSE REPORT END  */}
+</div>
+
+
+
+
+
+
+
+
+
+            </div>
+            
+            </div>
+            
+
+          </div> 
+          </div>   
+                     
     </form>
     </div>
-    {/* form part ends */}
+    
     </div>
+   
     </div>
     {/* </div> */}
     {/* </Card> */}
