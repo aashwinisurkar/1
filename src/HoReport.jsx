@@ -644,14 +644,14 @@ const openingamount = async(value) => {
                                                                                     {rowIndex + 1}
                                                                                 </Typography>
                                                                             </td>
-                                                                            <td className="border-2 p-1 w-[200px] ">
+                                                                            <td className="border-2 p-1 w-[280px] ">
                                                                                 {/* <input type="number" placeholder="Expense" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" /> */}
                                                                                 <select
             id="option"
             name="option"
             onChange={(e) => handleEditRowInputChange(rowIndex,'id',e.target.value)}
             value={row.id}
-            className="w-[160px] border border-gray-300 justify-center rounded-md h-[35px] uppercase"
+            className="w-[260px] border border-gray-300 justify-center rounded-md h-[35px] uppercase"
           >
             <option value="" className='font-normal text-[15px] w-[330px]  '>Select Expense</option>
             {options.map((option) => (
@@ -671,7 +671,7 @@ const openingamount = async(value) => {
                                                                                 onChange={(e) => handleEditRowInputChange(rowIndex,'voucherno',e.target.value)}
                                                                                 value={row.voucherno} />
                                                                             </td>
-                                                                            <td className="mx-auto pt-1 px-1 border-2 ">
+                                                                            <td className=" pt-1 px-1 border-2 ">
                                                                                 {/* <input type="text" placeholder="Narration" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
                                                                                 onChange={(e) => handleEditRowInputChange(rowIndex,'narration',e.target.value)}
                                                                                 value={row.narration}

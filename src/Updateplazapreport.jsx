@@ -397,336 +397,328 @@ setrem(data.remitance)
     <>
    
     {show ?
-    <div className='w-full pt-1 lg-flex-row md:flex-col flex '>
-    {/* className="h-[800px]" */}
-    {/* flex justify-center items-center */}
-    <div className='w-full  flex-wrap '>
-        {/* head part start */}
-    <div className=" w-full bg-indigo-600  justify-center items-center">
-   
-        <div className="rounded-t  mb-0 py-3">
+    <div className=' w-full  flex pt-1'>
+    <div className='w-full  px-0'>
+    <div className="flex justify-center items-center">
+     <div className="w-full pt-1  justify-center items-center">
+        <div className="rounded-t bg-indigo-500 mb-0 py-2">
       <div className="text-center">
-        <h6 className="text-white text-xl font-bold">
-           Plaza Report
+        <h6 className="text-white text-2xl font-bold">
+          PLAZA REPORT 
           {/* {pname.toUpperCase()} */}
         </h6>
       </div>
     </div>
-    
     </div>
-    {/* head part end */}
-    {/* form part start */}
-    <div className="w-full h-full justify-center items-center">
-    
-    <form className=" h-full w-full">
-        {/* <div> */}
+    </div>
+    <div className="w-full h-full bg-white ">
+    <form className=" h-full w-full  ">
             {/* <div className=" overflow-scroll"> */}
-                <div className=" py-2 px-4 justify-center items-center ">
-                <div className="px-5 flex  justify-center flex-col lg:flex-row  lg:items-center sm:items-center">
-            <div className="flex ml-[40px] mb-5">
+           
+                <div className=" py-1  justify-center items-center ">
+                <div className="px-2  flex   flex-col lg:flex-row  lg:items-center sm:items-center   justify-center ">
+            <div className="ml-[5px] mt-3  flex mb-3">
               <label className="uppercase text-blueGray-600 text-[17px] flex justify-center items-center font-bold mb-2 px-2" htmlfor="grid-password">
-                {/* Choose  */}
                 Date
               </label>
-              <input type="date" className="border-4  md:w-50 md:h-10 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
+              <input type="date" className="border-2  px-3  py-2 placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
               onChange={(e) =>{handleDateChange("test", e.target.value)}}
-            //   onChange={(e) =>{handleDateChange("test", e.target.value)}}  w-full
-            defaultValue={formData.date_rep}
-            disabled
+              defaultValue={datetd}
               />
             </div>
-          </div>
-          <div className="flex-grow-1  ">
+
+            </div>
+ <div className=" flex-grow-1 ">
                     
-                    <div className="flex flex-col lg:flex-row  ">
-                    {/* sm:flex-col lg:flex-row  */}
-                              
-                    <div className="border flex flex-wrap rounded-xl py-2 px-2 border-gray-300 shadow-md ">
-                 
-                                           
-                           {/* summary start */}
-                       <Card className="h-full w-full border rounded-lg  md-w-[300px]">
-                       <div className="flex  bg-blue-600 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
-                         <h2 className="font-bold text-[17px] text-white  ">SUMMARY</h2>
-                         </div>
-                       <div className="flex flex-col justify-start w-full mx-2 my-3">
-                   <div className="  items-start  flex">
-                 
-                   <div className="w-full font-bold my-3 mx-0 text-[13px]">
-                   <div className="flex  justify-center  items-center p-3">
-                         <div className="left-0 uppercase  flex-initial    w-[120px]">Opening Amount:</div>
-                         <input type="number" placeholder="Opening Amount" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
-                         defaultValue={oi} disabled/>
-                       </div>
-                       <div className="flex justify-center items-center   p-4">
-                         <div className="left-0 uppercase  flex-initial    w-[120px]">TOTAL CASH RECEIVES:</div>
-                         <input type="number" placeholder="Total cash received" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                          value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)}
-                          disabled /> 
-                       </div>
-                       <div className="flex justify-center items-center w-full p-4">
-                         <div className="left-0 uppercase  flex-initial      w-[120px]">TOTAL FASTACK RECEIVES:</div>
-                         <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
-                         value={parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
-                         disabled />
-                       </div>
-                       <div className="flex justify-center items-center w-full p-4">
-                         <div className="left-0 uppercase  flex-initial     w-[120px]">TOTAL COLLECTION:</div>
-                         <input type="number" placeholder="Total collection" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
-                         value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
-                         disabled />
-                       </div>
-                       <div className="flex justify-center items-center w-full p-4">
-                         <div className="left-0 uppercase  flex-initial    w-[120px]">TOTAL EXPENCES:</div>
-                         <input type="text" placeholder="Total expenses" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                          value={(formData.cash_kpt)}
-                          disabled   />
-                       </div>
-                       <div className="flex justify-center items-center w-full p-4">
-                         <div className="left-0 uppercase  flex-initial     w-[120px]">CLOSING BALANCE:</div>
-                         <input type="number" placeholder="Closing amount " className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                           value={ parseFloat(oi)+parseFloat(formData.adv_from_ho)+parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)-parseFloat(formData.cash_dep_arcpl)-parseFloat(formData.cash_kpt)}
-                           disabled  />
-                       </div>
-                    
-                      
-                       
-                     </div>
-                   </div>
-                   </div>
-                   <div className="  mb-2 px-2 flex justify-center  items-center ">
-                                           <Button color="green" onClick={handlesubmit}>Submit</Button>
-                                         </div>
-                 </Card>
-                                {/* SUMMARY REPORT END  */}
-                         
-                           </div> 
-                 
+   <div className="flex flex-col lg:flex-row ">
+             
+   <div className="border rounded-xl py-2 px-2 border-gray-300 shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90-md m-1 max-w-[317px]">
+
                           
-                           <div className="  flex-grow flex-wrap m-1  border border-gray-300 rounded-lg  ">
-                 
-                      
-                                 <div className=" flex flex-col  w-full  p-2 "> 
-                             {/* COLLECTION REPORT */}
-                             
-                                 <Card className="  flex flex-wrap    ">  
-                                 {/* //lg:w-[900px] md:w-[700px] */}
-                                 <div className="flex-col lg:flex-row ">
-                             <div className="flex bg-blue-600 justify-center items-center border rounded-lg  py-1">
-                               <h2 className="text-white  text-[17px] font-bold">COLLECTION
-                                 </h2>
-                                 </div>
-                           
-                                 <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
-                 
-                           <div className="  ml-5  flex justify-left  items-start py-1">
-                          
-                       <div className="left-0 uppercase font-bold text-[12px] flex-initial   ml-[20px] py-1 me-2 sm:w-[100px]"> ADVANCE FROM HO:</div>
-                       <input type="text" placeholder="Advance from H.O" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                       value={formData.adv_from_ho}
-                         onChange={(e) => handleInputChange("adv_from_ho", e.target.value)}
-                          />
-                     </div>
-                     <div className="  flex justify-left items-center  py-1">
-                     <div className="left-0 uppercase font-bold text-[12px] flex-initial    sm:ml-0  ml-[40px] py-1 me-2  sm:w-[120px]">CASH DEPOSITE IN ARCPL:</div>
-                         <input type="text" placeholder="IN ARCPL" className="border-2   w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                          value={formData.cash_dep_arcpl}
-                          onChange={(e) => handleInputChange("cash_dep_arcpl", e.target.value)} />
-                      </div>
-                 
-                     </div>   
-                     <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
-                             
-                             <div className="   ml-5 flex justify-left  items-start ">
-                            
-                             <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[20px] py-1 me-2 sm:w-[100px]"> CASH 1:</div>
-                         <input type="text" placeholder="CASH 1" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
-                         value={formData.total_cash_recievable}  onChange={(e) => handleInputChange("total_cash_recievable", e.target.value)} />
-                       </div>
-                       <div className="  flex justify-left items-center w-full  p-2">
-                           <div className="left-0 uppercase font-bold text-[12px]  flex-initial sm:ml-0  ml-[40px] py-1 me-2  sm:w-[120px]">CASH DEPOSITE IN BANK:</div>
-                           <input type="text" placeholder="CASH DEPOSITE IN BANK" className="border-2   w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                        value={formData.cash_dep_bank}
-                        onChange={(e) => handleInputChange("cash_dep_bank", e.target.value)} />
+          {/* summary start */}
+      <Card className="h-full w-full border rounded-lg  min-w-[300px]">
+      <div className="flex  bg-blue-600 py-1  border rouinded-lg py-1 justify-center items-center mb-[-20px]">
+        <h2 className="font-bold text-[17px] text-white  ">SUMMARY</h2>
+        </div>
+      <div className="flex flex-col justify-start w-full mx-2 my-3">
+  <div className="  items-start  flex">
+
+  <div className="w-full font-bold my-3 mx-0 text-[13px]">
+  <div className="flex  justify-center  items-center p-3">
+        <div className="left-0 uppercase  flex-initial   sm:w-[130px]">Opening Amount:</div>
+        <input type="number" placeholder="Opening Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        defaultValue={oi} disabled/>
+      </div>
+      <div className="flex justify-center items-center   p-4">
+        <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL CASH RECEIVES:</div>
+        <input type="number" placeholder="Total cash received" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+         value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)}
+         disabled /> 
+      </div>
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial     sm:w-[130px]">TOTAL FASTACK RECEIVES:</div>
+        <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        value={parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
+        disabled />
+      </div>
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial    sm:w-[130px]">TOTAL COLLECTION:</div>
+        <input type="number" placeholder="Total collection" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
+        disabled />
+      </div>
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL EXPENCES:</div>
+        <input type="text" placeholder="Total expenses" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+         value={(formData.cash_kpt)}
+         disabled   />
+      </div>
+      <div className="flex justify-center items-center w-full p-4">
+        <div className="left-0 uppercase  flex-initial    sm:w-[130px]">CLOSING BALANCE:</div>
+        <input type="number" placeholder="Closing amount " className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          value={ parseFloat(oi)+parseFloat(formData.adv_from_ho)+parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)-parseFloat(formData.cash_dep_arcpl)-parseFloat(formData.cash_kpt)}
+          disabled  />
+      </div>
+   
+     
+      
+    </div>
+  </div>
+  </div>
+  <div className="  mb-2 px-2 flex justify-center  items-center ">
+                          <Button color="green" onClick={handlesubmit}>Submit</Button>
                         </div>
-                   
-                       </div>   
-                      <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
-                             
-                             <div className="   ml-5 flex justify-left  items-start ">
-                            
-                             <div className="left-0 uppercase  flex-initial  ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[100px]">Cash 2</div>
-                         <input type="text" placeholder="Cash 2" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                         value={formData.balaji}
-                         onChange={(e) => handleInputChange("balaji", e.target.value)}  />
-                       </div>
-                       <div className="  flex justify-left items-center w-full  p-2">
-                           <div className="left-0 uppercase font-bold text-[12px] flex-initial sm:ml-0  ml-[40px] py-1 me-2   sm:w-[120px]">ONLINE MONTHLY PASS AMOUNT:</div>
-                           <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2   w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                            value={formData.on_monthly_pass_amt}  onChange={(e) => handleInputChange("on_monthly_pass_amt", e.target.value)} /> 
-                        </div>
-                   
-                       </div>   
-                       <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
-                             
-                             <div className="  ml-5  flex justify-left  items-start ">
-                            
-                         <div className="left-0 uppercase  flex-initial font-bold text-[12px] py-1 me-2   ml-[20px] sm:w-[100px]"> FAST TAG COLLECTION:</div>
-                         <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                                 value={formData.total_fast_tag_cl}  onChange={(e) => handleInputChange("total_fast_tag_cl", e.target.value)}  />
-                       </div>
-                       <div className="  flex justify-left items-center w-full  p-2">
-                           <div className="left-0 uppercase  font-bold text-[12px] flex-initial  sm:ml-0  ml-[40px] py-1 me-2  sm:w-[120px]">MONTHLY PASS AMOUNT:</div>
-                           <input type="text" placeholder=" MONTHLY PASS AMOUNT:" className="border-2   w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                            value={formData.monthly_pass_amt}   onChange={(e) => handleInputChange("monthly_pass_amt", e.target.value)} 
-                          />
-                        </div>
-                   
-                       </div>  
-                       <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
-                             
-                             <div className="   ml-5 flex justify-left  items-start ">
-                            
-                         <div className="left-0 uppercase  flex-initial py-1 me-2  font-bold text-[12px]    ml-[20px] sm:w-[100px]"> CASH DEPOSITED BY TC</div>
-                         <input type="text" placeholder="by TC" className="border-2  w-[120px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
-                        value={formData.total_cash_rec}
-                        onChange={(e) => handleInputChange("total_cash_rec", e.target.value)} />
-                       </div>
-                      
-                   
-                       </div>    
-                           </div></Card>
-                               </div>
-                               {/* COLLECTION REPORT END */}
-                               {/* <div>
-                                 
-                               </div> */}
-             <div className="flex-grow flex-wrap ">
-             <div className="my-1 flex flex-col sm:flex-row md:flex-row">
-                   {/* EXPENSE REPORT  */}
-                 <Card className="h-full  flex-wrap flex-grow  border rounded-lg py-2 overflow-scroll">
-                 <div className="flex bg-blue-600 justify-center items-center   py-1">
-                               <h2 className="text-white text-[17px] font-bold">EXPENSES
-                                 </h2>
-                                 </div>
-                    <table className=" min-w-max text-left">
-                                                                                 <thead>
-                                                                                     <tr>
-                                                                                         {TABLE_HEAD.map((head) => (
-                                                                                             <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 mx-auto  py-2 px-3">
-                                                                                                 <Typography
-                                                                                                     variant="small"
-                                                                                                     color="blue-gray"
-                                                                                                     className="font-bold leading-none  mx-auto  flex justify-center items-center "
-                                                                                                 >
-                                                                                                     {head}
-                                                                                                 </Typography>
-                                                                                             </th>
-                                                                                         ))}
-                                                                                     </tr>
-                                                                                 </thead>
-                                                                                 <tbody>
-                                                                                     {rowData.map((row, rowIndex) => (
-                                                                                         <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'even:bg-blue-gray-50/50' : ''}>
-                                                                                             <td className="  p-1 w-[1px] border-2 ">
-                                                                                                 <Typography variant="small" color="blue-gray" className="font-bold flex justify-center items-center">
-                                                                                                     {rowIndex + 1}
-                                                                                                 </Typography>
-                                                                                             </td>
-                                                                                             <td className=" border-2 w-[7px]">
-                                                                                            
-                                                                                                 <select
-                             id="option"
-                             name="option"
-                             onChange={(e) => handleRowInputChange(rowIndex,'id',e.target.value)}
-                             value={row.id}
-                             className="w-[150px] border border-gray-300 rounded-md p-2 h-[37px] uppercase"
-                           >
-                             <option value="" className="font-normal  text-15px]">Select Expense</option>
-                             {options.map((option) => (
-                               <option  value={option.id}>
-                                 {option.name}
-                               </option>
-                             ))}
-                           </select>
-                                                                                             </td>
-                                                                                             <td className="p-1 border-2 w-[50px]">
-                                                                                                 <input type="text" placeholder="Amount" className="border-2 w-[100px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all "
-                                                                                                  onChange={(e) => handleRowInputChange(rowIndex,'amount',e.target.value)}
-                                                                                                  value={row.amount} />
-                                                                                             </td>
-                                                                                             <td className="p-1 border-2 w-[90px]">
-                                                                                                 <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
-                                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'voucherno',e.target.value)}
-                                                                                                 value={row.voucherno} />
-                                 
-                                                                                            </td>
-                                                                                        <td className="p-1 border-2  mx-auto">
-                                                                                                 
-                                                                                                  <textarea
-                                                                                              placeholder="Narration" 
-                                                                                            className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded
-                                                                                             text-sm shadow focus:outline-none focus:ring md:h-[40px] w-full md:w-[300px]  "
-                                                                                           onChange={(e) => handleRowInputChange(rowIndex, 'narration', e.target.value)}
-                                                                                        value={row.narration}
-                                                                                            rows={1}
-                                                                                       // style={{ minHeight: '27px', maxHeight:"600px" }} 
-                                                                                             />
-                                                                                             </td>
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                              
-                 
-                  <td className="p-4 border-2 w-[10px]">
-                                  {/* <Button color="red" onClick={() => handleDeleteRow(rowIndex)}>Delete</Button> */}
-                                      <TrashIcon color="red" onClick={() =>handleDeleteRow(rowIndex)}
-                                           className="h-5 ml-[20px] cursor-pointer"/>
-                                           </td>
-                                             </tr>
-                                               ))}
-                                                   <tr>
-                                                    <td colSpan={5} className="p-4 border-2 ">
-                                                      <Button color="indigo" onClick={handleAddRow}>Add Row</Button>
-                                                        </td>
-                                                        </tr>
-                                                           </tbody>
-                                                     </table>
-                                                
-                    </Card>
-                    </div>
-                    {/* EXPENSE REPORT END  */}
-                 </div>
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                             </div>
-                             
-                             </div>
-                             
-                 
-                           </div> 
+</Card>
+               {/* SUMMARY REPORT END  */}
+        
+          </div> 
+
+         
+          <div className="  flex-grow  flex-wrap m-1 border border-gray-300 rounded-lg md:w-[1000px] ">
+
+        <div className=" flex flex-col sm:flex-row  w-full  p-2 ">  
+            {/* COLLECTION REPORT */}
+            
+                <Card className="  flex-grow flex-wrap   ">
+                  <div className="flex-col lg:flex-row ">
+            <div className="flex  bg-blue-600 justify-center items-center border rounded-lg  py-1">
+              <h2 className="text-white text-[17px] font-bold">COLLECTION
+                </h2>
                 </div>
+          
+          <div className="flex-wrap w-full  justify-start items-start grid grid-cols-1 me-2 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+
+          <div className="   flex justify-left ml-5  items-start py-1">
+         
+      <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[20px] py-2 me-2 sm:w-[120px] sm:ml-0"> ADVANCE FROM HO:</div>
+      <input type="text" placeholder="Advance from H.O" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+      value={formData.adv_from_ho}
+        onChange={(e) => handleInputChange("adv_from_ho", e.target.value)}
+         />
+    </div>
+    <div className="  flex justify-left items-center  py-1">
+   <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN ARCPL:</div>
+        <input type="text" placeholder="IN ARCPL" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+         value={formData.cash_dep_arcpl}
+         onChange={(e) => handleInputChange("cash_dep_arcpl", e.target.value)} />
+     </div>
+
+    </div>   
+    <div className="flex-wrap  justify-start items-start  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="  ml-5 flex justify-left  items-start ">
            
-        {/* </div> */}
+            <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0"> CASH 1:</div>
+        <input type="text" placeholder="CASH 1" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
+        value={formData.total_cash_recievable}  onChange={(e) => handleInputChange("total_cash_recievable", e.target.value)} />
+      </div>
+      <div className="  flex justify-left items-center w-full  p-2">
+          <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN BANK:</div>
+          <input type="text" placeholder="CASH DEPOSITE IN BANK" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+       value={formData.cash_dep_bank}
+       onChange={(e) => handleInputChange("cash_dep_bank", e.target.value)} />
+       </div>
+  
+      </div>   
+      <div className="flex-wrap  justify-start item-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="  ml-5  flex justify-left  items-start ">
+           
+            <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0">Cash 2</div>
+        <input type="text" placeholder="Cash 2" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        value={formData.balaji}
+        onChange={(e) => handleInputChange("balaji", e.target.value)}  />
+      </div>
+      <div className="  flex justify-left items-center w-full  p-2">
+          <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[40px] py-1 me-2  sm:w-[130px]">ONLINE MONTHLY PASS AMOUNT:</div>
+          <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+           value={formData.on_monthly_pass_amt}  onChange={(e) => handleInputChange("on_monthly_pass_amt", e.target.value)} /> 
+       </div>
+  
+      </div>   
+      <div className="flex-wrap  justify-start item-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="  ml-5  flex justify-left  items-start ">
+           
+        <div className="left-0 uppercase  flex-initial font-bold text-[12px] py-1 me-2  ml-[20px] sm:w-[120px] sm:ml-0"> FAST TAG COLLECTION:</div>
+        <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+                value={formData.total_fast_tag_cl}  onChange={(e) => handleInputChange("total_fast_tag_cl", e.target.value)}  />
+      </div>
+      <div className="  flex justify-left items-center w-full  p-2">
+          <div className="left-0 uppercase  font-bold text-[12px] flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">MONTHLY PASS AMOUNT:</div>
+          <input type="text" placeholder=" MONTHLY PASS AMOUNT:" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+           value={formData.monthly_pass_amt}   onChange={(e) => handleInputChange("monthly_pass_amt", e.target.value)} 
+         />
+       </div>
+  
+      </div>  
+      <div className="flex-wrap  justify-start items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+            
+            <div className="   ml-5 flex justify-left  items-start ">
+           
+        <div className="left-0 uppercase  flex-initial py-1 me-2  font-bold text-[12px] ml-[20px] sm:w-[120px] sm:ml-0"> CASH DEPOSITED BY TC</div>
+        <input type="text" placeholder="by TC" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+       value={formData.total_cash_rec}
+       onChange={(e) => handleInputChange("total_cash_rec", e.target.value)} />
+      </div>
+     
+  
+      </div>    
+      </div></Card>
+              </div>
+              {/* COLLECTION REPORT END */}
+              <div>
+                
+              </div>
+<div className=" flex-grow flex-wrap   mx-2">
+<div className=" flex flex-col sm:flex-row md:flex-row ">
+  {/* EXPENSE REPORT  */}
+<Card className="h-full flex-grow  flex-wrap   border rounded-lg py-2 overflow-scroll">
+<div className="flex  bg-blue-600 justify-center items-center border rounded-lg  py-1">
+              <h2 className="text-white text-[17px] font-bold">EXPENSES
+                </h2>
+                </div>
+   <table className="  text-left">
+                                                                <thead>
+                                                                    <tr>
+                                                                        {TABLE_HEAD.map((head) => (
+                                                                            <th key={head} className="border-2 border-blue-gray-100 bg-blue-gray-50 mx-auto  py-2 px-3">
+                                                                                <Typography
+                                                                                    variant="small"
+                                                                                    color="blue-gray"
+                                                                                    className="font-bold leading-none  mx-auto  flex justify-center items-center "
+                                                                                >
+                                                                                    {head}
+                                                                                </Typography>
+                                                                            </th>
+                                                                        ))}
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {rowData.map((row, rowIndex) => (
+                                                                        <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'even:bg-blue-gray-50/50' : ''}>
+                                                                            <td className="  p-1 w-[1px] border-2 ">
+                                                                                <Typography variant="small" color="blue-gray" className="font-bold flex justify-center items-center">
+                                                                                    {rowIndex + 1}
+                                                                                </Typography>
+                                                                            </td>
+                                                                            <td className=" border-2 w-[250px]">
+                                                                           
+                                                                                <select
+            id="option"
+            name="option"
+            onChange={(e) => handleRowInputChange(rowIndex,'id',e.target.value)}
+            value={row.id}
+            className="w-[230px] border border-gray-300 rounded-md p-2 h-[37px] uppercase"
+          >
+            <option value="" className="font-normal  text-15px]">Select Expense</option>
+            {options.map((option) => (
+              <option  value={option.id}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+                                                                            </td>
+                                                                            <td className="p-1 border-2 w-[50px]">
+                                                                                <input type="text" placeholder="Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all "
+                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'amount',e.target.value)}
+                                                                                 value={row.amount} />
+                                                                            </td>
+                                                                            <td className="p-1 border-2 w-[90px]">
+                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
+                                                                                onChange={(e) => handleRowInputChange(rowIndex,'voucherno',e.target.value)}
+                                                                                value={row.voucherno} />
+                
+                                                                           </td>
+                                                                       <td className="p-1 border-2 ">
+                                                                                
+                                                                                 <textarea
+                                                                             placeholder="Narration" 
+                                                                           className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded
+                                                                            text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[40px] w-full   "
+                                                                          onChange={(e) => handleRowInputChange(rowIndex, 'narration', e.target.value)}
+                                                                       value={row.narration}
+                                                                           rows={1}
+                                                                      // style={{ minHeight: '27px', maxHeight:"600px" }} 
+                                                                            />
+                                                                            </td>
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+ <td className="p-4 border-2 w-[10px]">
+                 {/* <Button color="red" onClick={() => handleDeleteRow(rowIndex)}>Delete</Button> */}
+                     <TrashIcon color="red" onClick={() =>handleDeleteRow(rowIndex)}
+                          className="h-5 ml-[20px] cursor-pointer"/>
+                          </td>
+                            </tr>
+                              ))}
+                                  <tr>
+                                   <td colSpan={5} className="p-4 border-2 ">
+                                     <Button color="indigo" onClick={handleAddRow}>Add Row</Button>
+                                       </td>
+                                       </tr>
+                                          </tbody>
+                                    </table>
+                               
+       
+ 
+   </Card>
+   </div>
+   {/* EXPENSE REPORT END  */}
+</div>
+
+
+
+
+
+
+
+
+
+            </div>
+            
+            </div>
+            
+
+          </div> 
+          </div>   
+                     
     </form>
     </div>
-    {/* form part ends */}
+    
     </div>
+   
     </div>
    :<div></div>}
     </>

@@ -275,8 +275,8 @@ if (ResponseMessage.includes('Invalid email') && ResponseMessage.includes('Inval
                 </div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-purple-600 w-100 py-3 text-sm font-semibold leading-5 text-white
-                   shadow-sm hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 w-100 py-3 text-sm font-semibold leading-5 text-white
+                   shadow-sm hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign in
                 </button>

@@ -434,7 +434,7 @@ fetch(api+'get_plaza')
                     {/* report part start */}
                         {/* <div className="flex flex-col lg:flex-row"> */}
                         {/* flex justify-center items-center */}
-                        <div className=" flex flex-col lg:flex-row ">
+                        <div className=" flex flex-col sm:flex-row lg:flex-row ">
 
                             <div className=" mx-4 py-4  flex-grow flex-wrap p-2 my-2 border-2 border-gray-200 rounded-lg  md:w-[1000px] ">
                            
@@ -466,14 +466,14 @@ fetch(api+'get_plaza')
                                                                                     {rowIndex + 1}
                                                                                 </Typography>
                                                                             </td>
-                                                                            <td className="border-2 p-1 w-[200px] ">
+                                                                            <td className="border-2 p-1 w-[300px] ">
                                                                                 {/* <input type="number" placeholder="Expense" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" /> */}
                                                                                 <select
             id="option"
             name="option"
             onChange={(e) => handleRowInputChange(rowIndex,'id',e.target.value)}
             value={row.id}
-            className="w-[160px] border border-gray-300 justify-center rounded-md h-[35px] uppercase"
+            className="w-[280px] border border-gray-300 justify-center rounded-md h-[35px] uppercase"
           >
             <option value="" className='font-normal text-[15px] w-[330px]  '>Select Expense</option>
             {options.map((option) => (

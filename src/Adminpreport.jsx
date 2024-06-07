@@ -774,7 +774,7 @@ fetch(api+'get_plaza')
                 </h2>
                 </div>
           
-          <div className="flex-wrap w-full  justify-start items-start grid grid-cols-1 me-2 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
+          <div className="flex-wrap w-full  justify-between  items-start grid grid-cols-1 me-2 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full ">
 
           <div className="   flex justify-left ml-5  items-start py-1">
          
@@ -890,14 +890,14 @@ fetch(api+'get_plaza')
                                                                                     {rowIndex + 1}
                                                                                 </Typography>
                                                                             </td>
-                                                                            <td className=" border-2 w-[7px]">
+                                                                            <td className=" border-2 w-[250px]">
                                                                            
                                                                                 <select
             id="option"
             name="option"
             onChange={(e) => handleRowInputChange(rowIndex,'id',e.target.value)}
             value={row.id}
-            className="w-[150px] border border-gray-300 rounded-md p-2 h-[37px] uppercase"
+            className="w-[230px] border border-gray-300 rounded-md p-2 h-[37px] uppercase"
           >
             <option value="" className="font-normal  text-15px]">Select Expense</option>
             {options.map((option) => (

@@ -34,7 +34,7 @@ import {
   EllipsisVerticalIcon,
   ArrowUpIcon,
 } from "@heroicons/react/24/outline";
-import { StatisticsCard } from "@/widgets/cards";
+// import { StatisticsCard } from "@/widgets/cards";
 import { StatisticsChart } from "@/widgets/charts";
 import {
   statisticsCardsData,
@@ -98,26 +98,7 @@ const data = [
 export function Home() {
 
   
-  // const [filter, setFilter] = useState('');
-
-  // const handleFilterChange = (event) => {
-  //   setFilter(event.target.value);
-  // };
-
-  // const [filterValues, setFilterValues] = useState({
-  //   name: '',
-  //   addr: '',
-  //   valid_from: '',
-  //   valid_to: ''
-  // });
-
-  // const handleFilterChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFilterValues({
-  //     ...filterValues,
-  //     [name]: value
-  //   });
-  // };
+ 
 
   const [sortBy, setSortBy] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
@@ -150,7 +131,7 @@ export function Home() {
   const [currentItems3,setcurrentItems3] = useState([]);
   const [monthlysale,setmonthlysale] = useState([]);
   const [monthlyexp,setmonthlyexp] = useState([]);
-  const [monthlyremi,setmonthlyremi] = useState([]);
+  
   const [cstat,setstat] = useState('');
 
  
@@ -244,12 +225,7 @@ export function Home() {
     [],
   );
 
-  // const testting = () => {
-  //   const checkdate = new Date('2024-03-18');
-  //   checkdate.setDate(checkdate.getDate() + 1);
-  //   const formattedDate = checkdate.toISOString().slice(0, 10);
-  //   console.log(formattedDate);
-  // }
+  
 
 
 
@@ -366,6 +342,7 @@ export function Home() {
       },[]);
       // monthly sales report
       const currentYear = new Date().getFullYear();
+      
       fetch(api+'monthlysalesamount',{
         method: 'POST',
         body: JSON.stringify({ year: currentYear }),
@@ -375,46 +352,28 @@ export function Home() {
         // setcurrentItems3(data.data);
         // console.log(data.Result);
         setmonthlysale(data.Result);
+        // setmonthlyexp(data.Result);
       })
       .catch((error) => {
         console.error('Error fetching options:', error);
       },[]);
-      // monthly expense report
-      // const currentYear = new Date().getFullYear();
+      // monthly expense report and remitance data 
+     
       fetch(api+'monthlyexpemseamount',{
         method: 'POST',
         body: JSON.stringify({ year: currentYear }),
       })
       .then((response) => response.json())
       .then((data) => {
-        // setcurrentItems3(data.data);
-        // console.log(data.Result);
+        
         setmonthlyexp(data.Result);
-        // setmonthlyremi(data.Result);
+    
       })
 
       .catch((error) => {
         console.error('Error fetching options:', error);
       },[]);
-      // //monthly remittance  reports 
-      // fetch(api+'monthlyremitnceamount',{
-      //   method: 'POST',
-      //   body: JSON.stringify({ year: currentYear }),
-      // })
-      // .then((response) => response.json())
-      // .then((data) => {
-      //   // setcurrentItems3(data.data);
-      //   console.log(data)
-      //   // console.log(data.Result);
-      //   setmonthlyremi(data.Result);
-      // })
-
-      // .catch((error) => {
-      //   console.error('Error fetching options:', error);
-      // },[]);
-
-
-
+     
 
 
      
@@ -436,7 +395,7 @@ const allMonths = uniqueMonths.map(month => {
   const entriesData = monthlysale.map((item) => parseInt(item.amount));
   // console.log(entriesData)
   const expentry = monthlyexp.map((item)=> parseInt(item.amount));
-  console.log(expentry)
+  // console.log(expentry)
   const remientry= monthlyexp.map((item)=> parseInt(item.RemittanceAmount));
   // console.log(remientry)
   const entrydetails = monthlyexp.map((item)=> parseInt(item.entries));
@@ -540,6 +499,7 @@ const entrydetail = {
   options: {
     ...chartsConfig,
     colors: ["#0288d1"],
+    
     stroke: {
       lineCap: "round",
     },
@@ -734,7 +694,7 @@ const entrydetail = {
                   }`;
 
                   return (
-                    <tr key={name}>
+                    <tr key={name} className="even:bg-blue-gray-50/50">
                       <td className={className}>
                         <div className="flex items-center  gap-4 text-center">
                           <div>
@@ -903,10 +863,10 @@ const entrydetail = {
       </Collapse>
       </div>
       
-      <div className="mb-6  flex-wrap  flex-row grid grid-cols-1 gap-y-12 gap-x-10 md:grid-cols-2 xl:grid-cols-2">
+      <div className="mb-10  flex-wrap  flex-row grid grid-cols-1 gap-y-12 gap-x-10 md:grid-cols-2 xl:grid-cols-2">
       {/* <div className="mb-6 flex-wrap flex-cols-2 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2"> */}
         {/* <Card> */}
-        <div>
+        <div> 
         <StatisticsChart
         key = 'ChartData'
         color="white" 
@@ -918,13 +878,14 @@ const entrydetail = {
        
         
 
-        <div className="ml-5">
-       <StatisticsChart
+        <div className="ml-5 ">
+       <StatisticsChart 
         key = 'Daily Sales1'
         color="white" 
         description = "MonthWise Entries "
         title = "Monthly Entries"
         chart ={entrydetail} 
+        className="px-5"
         />
         </div>
               {/* <StatisticsChart

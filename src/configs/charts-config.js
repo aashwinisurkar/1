@@ -1,3 +1,5 @@
+import { colors } from "@mui/material";
+
 export const chartsConfig = {
   chart: {
     toolbar: {
@@ -30,6 +32,7 @@ export const chartsConfig = {
     labels: {
       style: {
         colors: "#37474f",
+     
         fontSize: "13px",
         fontFamily: "inherit",
         fontWeight: 300,
@@ -39,6 +42,7 @@ export const chartsConfig = {
   grid: {
     show: true,
     borderColor: "#dddddd",
+ 
     strokeDashArray: 5,
     xaxis: {
       lines: {
@@ -52,7 +56,9 @@ export const chartsConfig = {
   },
   fill: {
     opacity: 0.8,
+    // colors:"#ff0000", 
   },
+  
   tooltip: {
     theme: "dark",
   },
