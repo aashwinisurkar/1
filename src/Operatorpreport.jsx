@@ -687,7 +687,7 @@ handleInputChange("initial_opn", data.io)
               />
             </div>
 
-            <div className="ml-[40px] mt-3 flex mb-3">
+            {/* <div className="ml-[40px] mt-3 flex mb-3">
               <label className="uppercase text-blueGray-600 text-[15px] flex justify-start items-center font-bold mb-2 me-2 " htmlfor="grid-password">
               Choose Plaza
               </label>
@@ -705,7 +705,7 @@ handleInputChange("initial_opn", data.io)
               </option>
             ))}
           </select>
-            </div>
+            </div> */}
 
            
 

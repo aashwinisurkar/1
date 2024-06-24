@@ -70,6 +70,7 @@ export function Sidenav({ brandImg, brandName, routes,routes1,routes2 }) {
             <div className="flex justify-center items-center">
               <img
                 src={'../../img/ashmilogo.jpeg'}
+                // src={'../../img/ALOGO1.png'}
                 className="h-[100px] w-[100px] object-cover"
               />
             </div>

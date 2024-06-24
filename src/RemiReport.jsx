@@ -8,7 +8,7 @@ import {
 import api from './ApiLink.mjs';
 import * as ExcelJS from 'exceljs';
 
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 200;
 
 const TABLE_HEAD = ["Sr no","TOLL PLAZA", "TOTAL COLLECTION", "REMITTANCE", "MARGIN WITHOUT EXP."];
 // const TABLE_HEAD1 = ["Sr no", "Date", "Opening Amount", "Advance from H.O", "TOTAL CASH RECEIVABLE AS PER SYSTEM", "balaji", "Monthly Pass Amount", "GROSS CASH RECEIVABLE FROM TOLL PLAZA", "TOTAL CASH RECEIVED FROM TC INCLUDING BALAJI CASH RECEIPTS", "TOTAL RECEPTS FROM TC", "SHORT/EXCESS COLLECTION FROM TC", "CASH DEPOSITED DIRECTLY TO BANK", "CASH DEPOSITED IN ARCPL OFFICE", "CASH KEPT FOR EXPENSES", "DIFFERENCE CASH IN TOLL PLAZA", "TOTAL FAST TAG COLLECTION", "SHORT AMOUNT ADJUSTMENT", "EXCESS AMOUNT ADJUSTMENT", "TOTAL FAST TAG RECEIVABLE", "FAST TAG AMOUNT TRANSFER TO BANK A/C", "DIFFERENCE RECEIVABLE", "TOTAL COLLECTION", "Operator"];
@@ -34,6 +34,11 @@ export default function RemiReport() {
     from: currentDate,
     date: currentDate,
   });
+
+
+
+  
+
 
   const startIdx = (currentPage - 1) * PAGE_SIZE;
   const endIdx = startIdx + PAGE_SIZE;

@@ -421,7 +421,7 @@ setrem(data.remitance)
               <label className="uppercase text-blueGray-600 text-[17px] flex justify-center items-center font-bold mb-2 px-2" htmlfor="grid-password">
                 Date
               </label>
-              <input type="date" className="border-2  px-3  py-2 placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
+              <input type="date" className="border-2  px-3  py-2 placeholder-blueGray-300 text-blueGray-600 bg-white  border-gray-400  border-solid rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring  ease-linear transition-all duration-150" placeholder=""
               onChange={(e) =>{handleDateChange("test", e.target.value)}}
               defaultValue={datetd}
               />
@@ -432,7 +432,7 @@ setrem(data.remitance)
                     
    <div className="flex flex-col lg:flex-row ">
              
-   <div className="border rounded-xl py-2 px-2 border-gray-300 shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90-md m-1 max-w-[317px]">
+   <div className="border rounded-xl py-2 px-2 border-gray-300 shadow-gray-500/50  dark: -md m-1 max-w-[317px]">
 
                           
           {/* summary start */}
@@ -446,36 +446,36 @@ setrem(data.remitance)
   <div className="w-full font-bold my-3 mx-0 text-[13px]">
   <div className="flex  justify-center  items-center p-3">
         <div className="left-0 uppercase  flex-initial   sm:w-[130px]">Opening Amount:</div>
-        <input type="number" placeholder="Opening Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        <input type="number" placeholder="Opening Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
         defaultValue={oi} disabled/>
       </div>
       <div className="flex justify-center items-center   p-4">
         <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL CASH RECEIVES:</div>
-        <input type="number" placeholder="Total cash received" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="number" placeholder="Total cash received" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)}
          disabled /> 
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial     sm:w-[130px]">TOTAL FASTACK RECEIVES:</div>
-        <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        <input type="number" placeholder="TOTAL FAST TAG RECEIVABLE" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
         value={parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
         disabled />
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial    sm:w-[130px]">TOTAL COLLECTION:</div>
-        <input type="number" placeholder="Total collection" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
+        <input type="number" placeholder="Total collection" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"  
         value={parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)}
         disabled />
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial   sm:w-[130px]">TOTAL EXPENCES:</div>
-        <input type="text" placeholder="Total expenses" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="Total expenses" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={(formData.cash_kpt)}
          disabled   />
       </div>
       <div className="flex justify-center items-center w-full p-4">
         <div className="left-0 uppercase  flex-initial    sm:w-[130px]">CLOSING BALANCE:</div>
-        <input type="number" placeholder="Closing amount " className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="number" placeholder="Closing amount " className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
           value={ parseFloat(oi)+parseFloat(formData.adv_from_ho)+parseFloat(formData.total_cash_recievable)+parseFloat(formData.balaji)+parseFloat(formData.monthly_pass_amt)+parseFloat(formData.total_fast_tag_cl)+parseFloat(formData.short_amt_adj)-parseFloat(formData.excess_amt_adj)-parseFloat(formData.cash_dep_arcpl)-parseFloat(formData.cash_kpt)}
           disabled  />
       </div>
@@ -511,14 +511,14 @@ setrem(data.remitance)
           <div className="   flex justify-left ml-5  items-start py-1">
          
       <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[20px] py-2 me-2 sm:w-[120px] sm:ml-0"> ADVANCE FROM HO:</div>
-      <input type="text" placeholder="Advance from H.O" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+      <input type="text" placeholder="Advance from H.O" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
       value={formData.adv_from_ho}
         onChange={(e) => handleInputChange("adv_from_ho", e.target.value)}
          />
     </div>
     <div className="  flex justify-left items-center  py-1">
    <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN ARCPL:</div>
-        <input type="text" placeholder="IN ARCPL" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="IN ARCPL" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
          value={formData.cash_dep_arcpl}
          onChange={(e) => handleInputChange("cash_dep_arcpl", e.target.value)} />
      </div>
@@ -529,12 +529,12 @@ setrem(data.remitance)
             <div className="  ml-5 flex justify-left  items-start ">
            
             <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0"> CASH 1:</div>
-        <input type="text" placeholder="CASH 1" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
+        <input type="text" placeholder="CASH 1" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150"
         value={formData.total_cash_recievable}  onChange={(e) => handleInputChange("total_cash_recievable", e.target.value)} />
       </div>
       <div className="  flex justify-left items-center w-full  p-2">
           <div className="left-0 uppercase font-bold text-[12px]  flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">CASH DEPOSITE IN BANK:</div>
-          <input type="text" placeholder="CASH DEPOSITE IN BANK" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          <input type="text" placeholder="CASH DEPOSITE IN BANK" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
        value={formData.cash_dep_bank}
        onChange={(e) => handleInputChange("cash_dep_bank", e.target.value)} />
        </div>
@@ -545,13 +545,13 @@ setrem(data.remitance)
             <div className="  ml-5  flex justify-left  items-start ">
            
             <div className="left-0 uppercase  flex-initial ml-[20px] py-2 font-bold text-[12px]  me-2  sm:w-[120px] sm:ml-0">Cash 2</div>
-        <input type="text" placeholder="Cash 2" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="Cash 2" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:   focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
         value={formData.balaji}
         onChange={(e) => handleInputChange("balaji", e.target.value)}  />
       </div>
       <div className="  flex justify-left items-center w-full  p-2">
           <div className="left-0 uppercase font-bold text-[12px] flex-initial ml-[40px] py-1 me-2  sm:w-[130px]">ONLINE MONTHLY PASS AMOUNT:</div>
-          <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          <input type="text" placeholder="MONTHLY PASS AMOUNT" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
            value={formData.on_monthly_pass_amt}  onChange={(e) => handleInputChange("on_monthly_pass_amt", e.target.value)} /> 
        </div>
   
@@ -561,12 +561,12 @@ setrem(data.remitance)
             <div className="  ml-5  flex justify-left  items-start ">
            
         <div className="left-0 uppercase  flex-initial font-bold text-[12px] py-1 me-2  ml-[20px] sm:w-[120px] sm:ml-0"> FAST TAG COLLECTION:</div>
-        <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="FAST TAG COLLECTION:" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
                 value={formData.total_fast_tag_cl}  onChange={(e) => handleInputChange("total_fast_tag_cl", e.target.value)}  />
       </div>
       <div className="  flex justify-left items-center w-full  p-2">
           <div className="left-0 uppercase  font-bold text-[12px] flex-initial ml-[40px] py-1 me-2 sm:w-[130px]">MONTHLY PASS AMOUNT:</div>
-          <input type="text" placeholder=" MONTHLY PASS AMOUNT:" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+          <input type="text" placeholder=" MONTHLY PASS AMOUNT:" className="border-2  sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
            value={formData.monthly_pass_amt}   onChange={(e) => handleInputChange("monthly_pass_amt", e.target.value)} 
          />
        </div>
@@ -577,7 +577,7 @@ setrem(data.remitance)
             <div className="   ml-5 flex justify-left  items-start ">
            
         <div className="left-0 uppercase  flex-initial py-1 me-2  font-bold text-[12px] ml-[20px] sm:w-[120px] sm:ml-0"> CASH DEPOSITED BY TC</div>
-        <input type="text" placeholder="by TC" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
+        <input type="text" placeholder="by TC" className="border-2 sm:w-[130px] placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150" 
        value={formData.total_cash_rec}
        onChange={(e) => handleInputChange("total_cash_rec", e.target.value)} />
       </div>
@@ -640,12 +640,12 @@ setrem(data.remitance)
           </select>
                                                                             </td>
                                                                             <td className="p-1 border-2 w-[50px]">
-                                                                                <input type="text" placeholder="Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all "
+                                                                                <input type="text" placeholder="Amount" className="border-2 sm:w-[120px] sm:ml-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all "
                                                                                  onChange={(e) => handleRowInputChange(rowIndex,'amount',e.target.value)}
                                                                                  value={row.amount} />
                                                                             </td>
                                                                             <td className="p-1 border-2 w-[90px]">
-                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
+                                                                                <input type="text" placeholder="Voucher No" className="border-2  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[27px] ease-linear transition-all duration-150 w-[80px]"
                                                                                 onChange={(e) => handleRowInputChange(rowIndex,'voucherno',e.target.value)}
                                                                                 value={row.voucherno} />
                 
@@ -655,7 +655,7 @@ setrem(data.remitance)
                                                                                  <textarea
                                                                              placeholder="Narration" 
                                                                            className="border-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded
-                                                                            text-sm shadow-gray-500/50 shadow-lg dark:shadow-lg dark:shadow-gray-900/90 focus:outline-none focus:ring h-[40px] w-full   "
+                                                                            text-sm shadow-gray-500/50  dark:  focus:outline-none focus:ring h-[40px] w-full   "
                                                                           onChange={(e) => handleRowInputChange(rowIndex, 'narration', e.target.value)}
                                                                        value={row.narration}
                                                                            rows={1}

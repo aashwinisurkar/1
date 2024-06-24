@@ -35,17 +35,7 @@ export function Dashboard() {
     return null;
   };
 
-  // const checkstatus = (value) =>{
-  //   fetch(api+'checkstats',{
-  //     method:'POST',
-  //     body: JSON.stringify({id:value})
-  //   })
-  //   .then((response)=>response.json())
-  //   .then((data)=> console.log(data.user))
-  //   .catch((error) => {
-  //     console.error('Error Fetching Data: ', error);
-  //   });
-  // }
+ 
 
   useEffect(() => {
     const data = decryptAndRetrieveData("Harry");
@@ -54,8 +44,7 @@ export function Dashboard() {
       setroute(true);
     }
 
-    // checkstatus(data.user.id);
-    // const refresh = setInterval(checkstatus(data.user.id),10000);
+    
     
   },[]);
 
@@ -73,16 +62,7 @@ export function Dashboard() {
       <div className={openSidenav? "p-4 xl:ml-80":"p-4 ml-10"}>
       {/* p-4 xl:ml-80 */}
         <DashboardNavbar />
-        {/* <Configurator /> */}
-        {/* <IconButton
-          size="lg"
-          color="white"
-          className="fixed bottom-8 right-8 z-40 rounded-full shadow-blue-gray-900/10"
-          ripple={false}
-          onClick={() => setOpenConfigurator(dispatch, true)}
-        >
-          <Cog6ToothIcon className="h-5 w-5" />
-        </IconButton> */}
+       
         <Routes>
          
           {routes.map(
